@@ -147,10 +147,10 @@ function ReservaForm() {
         console.error("Calendar Error:", calError);
       }
       
-      setStep(4);
+      navigateToStep(4);
     } catch (error) {
       console.error("Error:", error);
-      alert("Error al crear la reserva.");
+      alert("Error al crear la reserva. Verifica que todos los campos estén llenos.");
     } finally {
       setLoading(false);
     }
@@ -169,6 +169,7 @@ function ReservaForm() {
 
   return (
     <main className="px-6 py-24 max-w-2xl mx-auto min-h-screen">
+      <form onSubmit={handleSubmit}>
       
       {/* Search Param Banner */}
       {eventoParam && step === 1 && (
@@ -381,7 +382,7 @@ function ReservaForm() {
             disabled={loading}
             className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl shadow-brand-purple/40"
           >
-            {loading ? "Confirmando..." : "Confirmar Mi Cupo 🔥"}
+            {loading ? "Procesando..." : "Realizar Reserva 🔥"}
           </button>
         </div>
       )}
@@ -460,6 +461,7 @@ function ReservaForm() {
         isOpen={isPolicyModalOpen} 
         onClose={() => setIsPolicyModalOpen(false)} 
       />
+      </form>
     </main>
   );
 }
