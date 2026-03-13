@@ -9,7 +9,7 @@ export default function BottomNav() {
 
   const navItems = [
     { name: "Inicio", path: "/", icon: Home, isExternal: false },
-    { name: "Reservar", path: "/reserva", icon: CalendarPlus, isExternal: false },
+    { name: "Reservar", path: "/reserva?step=1", icon: CalendarPlus, isExternal: false },
     { name: "Eventos", path: "/eventos", icon: Sparkles, isExternal: false },
     { name: "Menú", path: "/menu", icon: Beer, isExternal: false },
   ];
