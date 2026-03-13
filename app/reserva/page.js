@@ -37,8 +37,18 @@ function ReservaForm() {
     correo: "",
     evento: eventoParam || ""
   });
+  
+  const [ticketId, setTicketId] = useState("");
+  const [qrPattern, setQrPattern] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   const horasDisponibles = ["14:00", "16:00", "18:00", "20:00", "22:00"];
+
+  useEffect(() => {
+    setIsMounted(true);
+    setTicketId(Math.floor(Math.random() * 9000) + 1000);
+    setQrPattern(Array.from({ length: 36 }).map(() => Math.random() > 0.4));
+  }, []);
 
   const ambientes = [
     {
@@ -305,7 +315,12 @@ function ReservaForm() {
                    <div className="text-right"><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Invitados</p><p className="font-black text-sm uppercase">{formData.personas} Pax</p></div>
                 </div>
                 <div className="pt-6 border-t border-dashed border-slate-200 flex flex-col items-center">
-                   <p className="text-[9px] font-mono text-slate-400 uppercase">#BLRM-{Math.floor(Math.random()*9000)+1000}</p>
+                   <div className="w-24 h-24 grid grid-cols-6 grid-rows-6 gap-1 opacity-80 mb-4">
+                      {qrPattern.map((isBlack, i) => (
+                        <div key={i} className={`rounded-[2px] ${isBlack ? 'bg-slate-800' : 'bg-transparent'}`}></div>
+                      ))}
+                   </div>
+                   <p className="text-[9px] font-mono text-slate-400 uppercase">#BLRM-{ticketId}</p>
                 </div>
              </div>
              <div className="bg-slate-50 p-6 border-t border-slate-100 italic">
