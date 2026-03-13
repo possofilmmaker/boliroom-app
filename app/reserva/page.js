@@ -22,6 +22,13 @@ function ReservaForm() {
     }
   }, [stepParam]);
 
+  // Protección: Si entra al paso 4 (ticket) sin haber llenado datos, devolver al inicio
+  useEffect(() => {
+    if (step === 4 && (!formData.nombre || !formData.fecha)) {
+      navigateToStep(1);
+    }
+  }, [step, formData.nombre, formData.fecha]);
+
   // Función para cambiar de paso actualizando la URL (historial)
   const navigateToStep = (nextStep) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -169,7 +176,6 @@ function ReservaForm() {
 
   return (
     <main className="px-6 py-24 max-w-2xl mx-auto min-h-screen">
-      <form onSubmit={handleSubmit}>
       
       {/* Search Param Banner */}
       {eventoParam && step === 1 && (
@@ -377,13 +383,15 @@ function ReservaForm() {
              </div>
           </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl shadow-brand-purple/40"
-          >
-            {loading ? "Procesando..." : "Realizar Reserva 🔥"}
-          </button>
+          <form onSubmit={handleSubmit}>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl shadow-brand-purple/40"
+            >
+              {loading ? "Procesando..." : "Realizar Reserva 🔥"}
+            </button>
+          </form>
         </div>
       )}
 
@@ -437,18 +445,18 @@ function ReservaForm() {
                 <p className="text-[9px] text-slate-400 font-bold text-center leading-relaxed">
                   * Tolerancia 15 min. Consumo min $200k consumibles por mesa. {formData.ambiente === 'vip_karaoke' ? 'Incluye Karaoke y juegos.' : 'Acceso a Terraza social.'}
                 </p>
-             </div>
-          </div>
+              </div>
+            </div>
 
-          <div className="mt-8 space-y-4">
-             <button onClick={() => {
+            <div className="mt-8 space-y-4">
+              <button type="button" onClick={() => {
                 const text = `¡Hola Boliroom 🍹! Acabo de reservar en ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}.\n👤 Nombre: ${formData.nombre}\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}`;
                 window.open(`https://wa.me/573000000000?text=${encodeURIComponent(text)}`, '_blank');
-             }} className="w-full bg-[#25D366] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl">
-                REPORTAR EN WHATSAPP
-             </button>
-             <button onClick={() => window.location.href = '/'} className="w-full text-slate-500 font-black text-[10px] uppercase tracking-widest text-center py-4">Finalizar y Volver</button>
-          </div>
+              }} className="w-full bg-[#25D366] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl">
+                 REPORTAR EN WHATSAPP
+              </button>
+              <button type="button" onClick={() => window.location.href = '/'} className="w-full text-slate-500 font-black text-[10px] uppercase tracking-widest text-center py-4">Finalizar y Volver</button>
+            </div>
         </div>
       )}
 
@@ -461,7 +469,6 @@ function ReservaForm() {
         isOpen={isPolicyModalOpen} 
         onClose={() => setIsPolicyModalOpen(false)} 
       />
-      </form>
     </main>
   );
 }
