@@ -49,7 +49,7 @@ export default function AdminDashboard() {
   };
 
   const openWhatsApp = (res) => {
-    const text = `Hola ${res.nombre}, te saludamos de Boliroom 🍹. Confirmamos tu reserva para hoy ${res.fecha} a las ${res.hora} para ${res.personas} personas. ¡Te esperamos!`;
+    const text = `¡Hola ${res.nombre}! 🍹 Gracias por elegir Boliroom para tu parche. 🎳\n\nConfirmamos tu solicitud de reserva:\n📅 Fecha: ${res.fecha}\n⏰ Hora: ${res.hora}\n👥 Pax: ${res.personas}\n📍 Ambiente: ${res.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\nPara finalizar tu reserva y asegurar tu lugar, por favor realiza el abono de $100.000 COP (consumibles) a nuestra cuenta oficial:\n\n🏦 BANCOLOMBIA (Ahorros)\n🔢 Cuenta: 123-456789-01\n🆔 Nit: 900.000.000-1\n\nUna vez realizado, envíanos el comprobante por este medio. ¡Nos vemos pronto! 🔥`;
     window.open(`https://wa.me/57${res.telefono}?text=${encodeURIComponent(text)}`, '_blank');
   };
 

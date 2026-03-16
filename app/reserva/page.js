@@ -341,16 +341,18 @@ function ReservaForm() {
              <div className="bg-slate-50 p-6 border-t border-slate-100 italic">
                 <p className="text-[9px] text-slate-400 font-bold text-center leading-relaxed">* Envía el comprobante por WhatsApp para finalizar.</p>
              </div>
-          </div>
-
-          <div className="space-y-4">
-             <button type="button" onClick={() => {
-                const text = `¡Hola Boliroom 🍹! Acabo de realizar mi reserva:\n👤 Nombre: ${formData.nombre}\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\n¡Gracias por tu reserva! 🎳 Para asegurar mi mesa, procederé a realizar el abono de $100.000 COP a la cuenta Bancolombia # 123-456789-01. ¡Nos vemos pronto!`;
-                window.open(`https://wa.me/573000000000?text=${encodeURIComponent(text)}`, '_blank');
-             }} className="w-full bg-[#25D366] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl">
-                ENVIAR TICKET Y PAGAR ABONO
+          </div>          <div className="space-y-4">
+             <div className="p-4 bg-brand-purple/10 border border-brand-purple/20 rounded-2xl">
+                <p className="text-[10px] text-brand-purple font-black text-center uppercase tracking-widest">
+                   ¡Tu reserva ha sido registrada! 🎳
+                </p>
+                <p className="text-[9px] text-slate-400 text-center mt-1">
+                   En unos minutos te contactaremos por WhatsApp para enviarte tu ticket y confirmar el abono.
+                </p>
+             </div>
+             <button type="button" onClick={() => window.location.href = '/'} className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest shadow-xl">
+                Volver al Inicio
              </button>
-             <button type="button" onClick={() => window.location.href = '/'} className="w-full text-slate-500 font-black text-[10px] uppercase tracking-widest text-center py-4">Volver al Inicio</button>
           </div>
         </div>
       )}
