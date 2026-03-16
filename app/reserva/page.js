@@ -298,13 +298,13 @@ function ReservaForm() {
 
       {/* STEP 4 */}
       {step === 4 && (
-        <div className="animate-in zoom-in-95 duration-500 py-4">
+        <div className="animate-in zoom-in-95 duration-500 py-4 space-y-6">
           <div className="bg-white text-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative">
              <div className={`p-8 text-center text-white relative ${formData.ambiente === 'vip_karaoke' ? 'bg-brand-purple' : 'bg-brand-cyan'}`}>
                 <div className="relative z-10 flex flex-col items-center">
                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4"><CheckCircle2 size={40} className="text-white" /></div>
                    <h2 className="text-2xl font-black tracking-tighter uppercase italic">{formData.ambiente === 'vip_karaoke' ? 'PASS VIP' : 'PASS TERRAZA'}</h2>
-                   <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Boliroom Bogotá • Reserva Confirmada</p>
+                   <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Boliroom Bogotá • Pendiente de Abono</p>
                 </div>
              </div>
              <div className="p-8 space-y-6">
@@ -314,6 +314,21 @@ function ReservaForm() {
                    <div><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Fecha & Hora</p><p className="font-black text-sm uppercase">{formData.fecha} • {formData.hora}</p></div>
                    <div className="text-right"><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Invitados</p><p className="font-black text-sm uppercase">{formData.personas} Pax</p></div>
                 </div>
+
+                {/* Bancolombia Info Section */}
+                <div className="p-5 bg-slate-50 rounded-3xl border border-slate-100 space-y-3">
+                   <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brand-purple">
+                      <Sparkles size={14} /> Instrucciones de Abono
+                   </div>
+                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
+                     Para asegurar tu mesa, realiza el abono de <span className="font-black text-slate-900">$100.000 COP</span> (Ahorros Bancolombia):
+                   </p>
+                   <div className="bg-white p-3 rounded-xl border border-slate-200">
+                      <p className="text-xs font-black text-slate-900">CUENTA: 123-456789-01</p>
+                      <p className="text-[9px] text-slate-400 uppercase font-bold tracking-tighter">Boliroom Bogotá • Nit: 900.000.000-1</p>
+                   </div>
+                </div>
+
                 <div className="pt-6 border-t border-dashed border-slate-200 flex flex-col items-center">
                    <div className="w-24 h-24 grid grid-cols-6 grid-rows-6 gap-1 opacity-80 mb-4">
                       {qrPattern.map((isBlack, i) => (
@@ -324,15 +339,18 @@ function ReservaForm() {
                 </div>
              </div>
              <div className="bg-slate-50 p-6 border-t border-slate-100 italic">
-                <p className="text-[9px] text-slate-400 font-bold text-center leading-relaxed">* Tolerancia 15 min. Consumo min $200k consumibles por mesa.</p>
+                <p className="text-[9px] text-slate-400 font-bold text-center leading-relaxed">* Envía el comprobante por WhatsApp para finalizar.</p>
              </div>
           </div>
-          <div className="mt-8 space-y-4">
+
+          <div className="space-y-4">
              <button type="button" onClick={() => {
-                const text = `¡Hola Boliroom 🍹! Acabo de reservar en ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}.\n👤 Nombre: ${formData.nombre}\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}`;
+                const text = `¡Hola Boliroom 🍹! Acabo de realizar mi reserva:\n👤 Nombre: ${formData.nombre}\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\n¡Gracias por tu reserva! 🎳 Para asegurar mi mesa, procederé a realizar el abono de $100.000 COP a la cuenta Bancolombia # 123-456789-01. ¡Nos vemos pronto!`;
                 window.open(`https://wa.me/573000000000?text=${encodeURIComponent(text)}`, '_blank');
-             }} className="w-full bg-[#25D366] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl">REPORTAR EN WHATSAPP</button>
-             <button type="button" onClick={() => window.location.href = '/'} className="w-full text-slate-500 font-black text-[10px] uppercase tracking-widest text-center py-4">Finalizar y Volver</button>
+             }} className="w-full bg-[#25D366] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl">
+                ENVIAR TICKET Y PAGAR ABONO
+             </button>
+             <button type="button" onClick={() => window.location.href = '/'} className="w-full text-slate-500 font-black text-[10px] uppercase tracking-widest text-center py-4">Volver al Inicio</button>
           </div>
         </div>
       )}
