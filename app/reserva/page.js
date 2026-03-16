@@ -165,7 +165,7 @@ function ReservaForm() {
       }
       const message = `¡Hola ${formData.nombre}! 🍹 Gracias por elegir Boliroom para tu parche. 🎳\n\nConfirmamos tu solicitud de reserva:\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\nPara finalizar tu reserva y asegurar tu lugar, por favor realiza el abono de $100.000 COP (consumibles) a nuestra cuenta oficial:\n\n🏦 BANCOLOMBIA (Ahorros)\n🔢 Cuenta: 123-456789-01\n🆔 Nit: 900.000.000-1\n\nUna vez realizado, envíanos el comprobante por este medio. ¡Nos vemos pronto! 🔥`;
       
-      const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/573138139634?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       
       navigateToStep(4);
@@ -206,7 +206,7 @@ function ReservaForm() {
                   key={amb.id}
                   onClick={() => {
                     if (amb.isExternal) {
-                      window.open(`https://wa.me/573000000000?text=${encodeURIComponent(amb.whatsappMsg)}`, '_blank');
+                      window.open(`https://wa.me/573138139634?text=${encodeURIComponent(amb.whatsappMsg)}`, '_blank');
                     } else {
                       setFormData(prev => ({ ...prev, ambiente: amb.id }));
                       navigateToStep(2);
