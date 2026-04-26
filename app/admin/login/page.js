@@ -19,7 +19,7 @@ export default function LoginPage() {
 
     // Por ahora usamos una validación simple local para agilizar. 
     // En producción Jonathan puede cambiar estos valores en el código o .env
-    if (username === "admin_boli" && password === "Boliroom2026!") {
+    if ((username === "admin_boli" && password === "Boliroom2026!") || (username === "admin_melao" && password === "Melao2026!")) {
       localStorage.setItem("boli_admin_session", "active_" + Date.now());
       router.push("/admin");
     } else {
@@ -36,7 +36,7 @@ export default function LoginPage() {
             <Lock className="text-white" size={30} />
           </div>
           <h1 className="text-3xl font-bold text-white tracking-tighter">ACCESO ADMIN</h1>
-          <p className="text-slate-400 text-sm mt-2">Boliroom - Gestión de Reservas</p>
+          <p className="text-slate-400 text-sm mt-2">Melao Social Crew - Gestión de Reservas</p>
         </div>
 
         <form onSubmit={handleLogin} className="glass-panel p-8 rounded-3xl border border-white/5 space-y-6">
@@ -100,7 +100,7 @@ export default function LoginPage() {
         </form>
         
         <p className="text-center mt-8 text-slate-600 text-[10px] uppercase tracking-widest">
-          Sistema de Seguridad Boliroom v2.0
+          Sistema de Seguridad Melao v2.0
         </p>
       </div>
     </div>

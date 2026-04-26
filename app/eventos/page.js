@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function EventosPage() {
   const handleShare = (evento) => {
     const shareData = {
-      title: `Boliroom - ${evento.titulo}`,
-      text: `¡Mira este evento en Boliroom! ${evento.titulo} el ${evento.fecha}.`,
+      title: `Melao - ${evento.titulo}`,
+      text: `¡Mira este evento en Melao! ${evento.titulo} el ${evento.fecha}.`,
       url: window.location.origin + `/eventos#${evento.id}`,
     };
 
@@ -57,7 +57,7 @@ export default function EventosPage() {
         <h1 className="text-4xl font-black italic tracking-tighter text-white mb-2 uppercase">
           PRÓXIMOS <span className="text-brand-purple">EVENTOS</span>
         </h1>
-        <p className="text-slate-500 text-xs uppercase font-bold tracking-[0.2em]">Vive la experiencia Boliroom</p>
+        <p className="text-slate-500 text-xs uppercase font-bold tracking-[0.2em]">Vive la experiencia Melao</p>
       </div>
 
       <div className="space-y-10">
@@ -128,7 +128,7 @@ export default function EventosPage() {
         <h3 className="text-white font-bold mb-2 uppercase tracking-tight">¿Quieres celebrar algo especial?</h3>
         <p className="text-slate-500 text-xs mb-6">Cumpleaños, despedidas o eventos corporativos. ¡Nosotros nos encargamos!</p>
         <a 
-          href="https://wa.me/573000000000?text=Hola! Quiero cotizar un evento privado en Boliroom 🥂"
+          href="https://wa.me/573000000000?text=Hola! Quiero cotizar un evento privado en Melao 🥂"
           className="text-brand-cyan font-bold text-sm hover:underline"
         >
           Contactar para Evento Privado →

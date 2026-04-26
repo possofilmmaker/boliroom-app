@@ -46,7 +46,7 @@ export default function ReservasPage() {
   };
 
   const openWhatsApp = (res) => {
-    const text = `Hola ${res.nombre}, te saludamos de Boliroom 🍹. Confirmamos tu reserva para hoy ${res.fecha} a las ${res.hora} para ${res.personas} personas. ¡Te esperamos!`;
+    const text = `Hola ${res.nombre}, te saludamos de Melao Social Crew 🍹. Confirmamos tu reserva para hoy ${res.fecha} a las ${res.hora} para ${res.personas} personas. ¡Te esperamos!`;
     window.open(`https://wa.me/57${res.telefono}?text=${encodeURIComponent(text)}`, '_blank');
   };
 

@@ -72,11 +72,11 @@ function ReservaForm() {
     {
       id: "empresarial",
       titulo: "Eventos Empresariales",
-      piso: "Boliroom Corporativo",
+      piso: "Melao Corporativo",
       descripcion: "¿Planeas un evento de empresa? Ofrecemos planes a medida, catering y privacidad total para tu equipo.",
       features: ["Planes a Medida", "Privacidad Total", "Catering Premium"],
       isExternal: true,
-      whatsappMsg: "¡Hola Boliroom! 🏢 Estoy interesado en una reserva empresarial o evento corporativo.",
+      whatsappMsg: "¡Hola Melao! 🏢 Estoy interesado en una reserva empresarial o evento corporativo.",
       imagen: "/images/mesavip.jpg" 
     }
   ];
@@ -163,7 +163,7 @@ function ReservaForm() {
       } catch (calError) {
         console.error("Calendar Error:", calError);
       }
-      const message = `¡Hola ${formData.nombre}! 🍹 Gracias por elegir Boliroom para tu parche. 🎳\n\nConfirmamos tu solicitud de reserva:\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\nPara finalizar tu reserva y asegurar tu lugar, por favor realiza el abono de $100.000 COP (consumibles) a nuestra cuenta oficial:\n\n🏦 BANCOLOMBIA (Ahorros)\n🔢 Cuenta: 123-456789-01\n🆔 Nit: 900.000.000-1\n\nUna vez realizado, envíanos el comprobante por este medio. ¡Nos vemos pronto! 🔥`;
+      const message = `¡Hola ${formData.nombre}! 🍹 Gracias por elegir Melao Social Crew para tu parche. 🎳\n\nConfirmamos tu solicitud de reserva:\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\nPara finalizar tu reserva y asegurar tu lugar, por favor realiza el abono de $100.000 COP (consumibles) a nuestra cuenta oficial:\n\n🏦 BANCOLOMBIA (Ahorros)\n🔢 Cuenta: 123-456789-01\n🆔 Nit: 900.000.000-1\n\nUna vez realizado, envíanos el comprobante por este medio. ¡Nos vemos pronto! 🔥`;
       
       const whatsappUrl = `https://wa.me/573138139634?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
@@ -309,7 +309,7 @@ function ReservaForm() {
                 <div className="relative z-10 flex flex-col items-center">
                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4"><CheckCircle2 size={40} className="text-white" /></div>
                    <h2 className="text-2xl font-black tracking-tighter uppercase italic">{formData.ambiente === 'vip_karaoke' ? 'PASS VIP' : 'PASS TERRAZA'}</h2>
-                   <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Boliroom Bogotá • Pendiente de Abono</p>
+                   <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Melao Social Crew Bogotá • Pendiente de Abono</p>
                 </div>
              </div>
              <div className="p-8 space-y-6">
@@ -330,7 +330,7 @@ function ReservaForm() {
                    </p>
                    <div className="bg-white p-3 rounded-xl border border-slate-200">
                       <p className="text-xs font-black text-slate-900">CUENTA: 123-456789-01</p>
-                      <p className="text-[9px] text-slate-400 uppercase font-bold tracking-tighter">Boliroom Bogotá • Nit: 900.000.000-1</p>
+                      <p className="text-[9px] text-slate-400 uppercase font-bold tracking-tighter">Melao Social Crew Bogotá • Nit: 900.000.000-1</p>
                    </div>
                 </div>
 
@@ -340,7 +340,7 @@ function ReservaForm() {
                         <div key={i} className={`rounded-[2px] ${isBlack ? 'bg-slate-800' : 'bg-transparent'}`}></div>
                       ))}
                    </div>
-                   <p className="text-[9px] font-mono text-slate-400 uppercase">#BLRM-{ticketId}</p>
+                   <p className="text-[9px] font-mono text-slate-400 uppercase">#MELA-{ticketId}</p>
                 </div>
              </div>
              <div className="bg-slate-50 p-6 border-t border-slate-100 italic">
@@ -363,7 +363,7 @@ function ReservaForm() {
       )}
 
       <footer className="mt-12 text-center opacity-40">
-        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Boliroom Bogotá © 2026</p>
+        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Melao Social Crew © 2026</p>
       </footer>
 
       <ReservationPolicyModal isOpen={isPolicyModalOpen} onClose={() => setIsPolicyModalOpen(false)} />
@@ -373,7 +373,7 @@ function ReservaForm() {
 
 export default function ReservaPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-white italic">Cargando Boliroom...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-white italic">Cargando Melao...</div>}>
       <ReservaForm />
     </Suspense>
   );

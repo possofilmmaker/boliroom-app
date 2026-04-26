@@ -22,10 +22,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-brand-purple flex items-center justify-center animate-pulse shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-            <span className="text-white font-black">B</span>
+          <div className="w-8 h-8 rounded-lg bg-brand-purple flex items-center justify-center animate-pulse shadow-[0_0_15px_rgba(242,106,89,0.5)]">
+            <span className="text-white font-black">M</span>
           </div>
-          <span className="text-xl font-bold tracking-tighter text-white">BOLIROOM</span>
+          <span className="text-xl font-bold tracking-tighter text-white">MELAO</span>
         </Link>
 
         {/* Desktop Navigation */}

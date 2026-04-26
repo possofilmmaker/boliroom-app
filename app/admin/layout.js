@@ -54,7 +54,7 @@ export default function AdminLayout({ children }) {
       <aside className="w-64 glass-panel border-r border-slate-800 flex flex-col hidden md:flex">
         <div className="p-6 border-b border-slate-800">
           <h2 className="text-2xl font-bold neon-text-purple tracking-tighter">
-            BOLIROOM
+            MELAO
           </h2>
           <span className="text-xs text-slate-400 font-mono">ADMIN PANEL</span>
         </div>

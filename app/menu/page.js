@@ -11,7 +11,7 @@ export default function MenuDigitalPage() {
     cocteles: [
       { 
         id: 1, 
-        nombre: "Boliroom Purple Dream", 
+        nombre: "Melao Coral Dream", 
         descripcion: "Nuestra especialidad. Ron premium, licor de mora, limón y un toque secreto de la casa.", 
         precio: "$32.000",
         imagen: "/boliroom_signature_cocktail_1773343366899.png",
@@ -41,7 +41,7 @@ export default function MenuDigitalPage() {
     comida: [
       { 
         id: 5, 
-        nombre: "Nachos Boliroom Supreme", 
+        nombre: "Nachos Melao Supreme", 
         descripcion: "Montaña de totopos crujientes, doble queso fundido, chili con carne, guacamole artesanal y pico de gallo.", 
         precio: "$35.000",
         imagen: "/boliroom_nachos_premium_1773343494841.png",
@@ -58,7 +58,7 @@ export default function MenuDigitalPage() {
       },
       { 
         id: 7, 
-        nombre: "Picada Boli (Para 4)", 
+        nombre: "Picada Melao (Para 4)", 
         descripcion: "Chorizo santarrosano, morcilla, carne, pollo, papa criolla y yuca frita.", 
         precio: "$65.000",
         badge: "Para Compartir"
@@ -95,7 +95,7 @@ export default function MenuDigitalPage() {
         </h1>
         <div className="flex items-center justify-center gap-2">
             <span className="h-px w-8 bg-slate-800"></span>
-            <p className="text-slate-500 text-[10px] uppercase font-bold tracking-[0.3em]">Boliroom Experience</p>
+            <p className="text-slate-500 text-[10px] uppercase font-bold tracking-[0.3em]">Melao Experience</p>
             <span className="h-px w-8 bg-slate-800"></span>
         </div>
       </header>

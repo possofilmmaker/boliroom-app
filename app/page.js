@@ -44,11 +44,11 @@ export default function Home() {
               </div>
               
               <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter text-white uppercase mb-4 leading-[0.8]">
-                BOLI<span className="text-brand-purple neon-text-purple">ROOM</span>
+                MELAO
               </h1>
               
               <p className="text-slate-400 text-sm md:text-lg max-w-md mx-auto mb-10 font-bold uppercase tracking-widest leading-relaxed">
-                Coctelería de autor • Bolirana Pro • <span className="text-brand-cyan">Karaoke VIP</span> • Arcade
+                <span className="text-brand-cyan">Social Crew</span> • Coctelería de autor • Bolirana Pro • Arcade
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg">
@@ -110,7 +110,7 @@ export default function Home() {
               </div>
            </div>
 
-           {/* Level 3: Boli-Roof */}
+           {/* Level 3: Melao-Roof */}
            <div className="group glass-panel rounded-[2.5rem] border border-white/20 hover:border-brand-cyan/50 transition-all duration-500 relative overflow-hidden h-[400px]">
               <img src="/images/terraza.jpg" alt="Piso 3" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-40" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -119,7 +119,7 @@ export default function Home() {
                 <div className="w-14 h-14 bg-brand-cyan/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 border border-brand-cyan/30 group-hover:scale-110 transition-transform">
                   <Target className="text-brand-cyan" size={28} />
                 </div>
-                <h3 className="text-2xl font-black italic text-white uppercase mb-3">Piso 3: Boli-Roof Terrace</h3>
+                <h3 className="text-2xl font-black italic text-white uppercase mb-3">Piso 3: Melao-Roof Terrace</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-2">
                   Nuestra terraza social al aire libre. 3 boliranas pro, mesas de subsoccer y el mejor spot para parchar con comida y cócteles bajo el cielo.
                 </p>
@@ -143,7 +143,7 @@ export default function Home() {
                   VIVE LAS <br/><span className="text-brand-purple">MEJORES NOCHES</span>
                </h2>
                <p className="text-slate-400 leading-relaxed font-medium">
-                  Desde torneos relámpago de Beerpong hasta noches de DJ en vivo y fiestas temáticas. En Boliroom siempre está pasando algo.
+                  Desde torneos relámpago de Beerpong hasta noches de DJ en vivo y fiestas temáticas. En Melao siempre está pasando algo.
                </p>
                <Link href="/eventos" className="inline-flex items-center gap-2 text-brand-cyan font-black text-xs uppercase tracking-[0.2em] hover:gap-4 transition-all">
                   Explorar todos los eventos <ArrowRight size={16} />
@@ -186,7 +186,7 @@ export default function Home() {
             </p>
             
             <a 
-              href="https://wa.me/573000000000?text=Hola Boliroom! 🏢 Estoy interesado en una reserva empresarial o evento corporativo."
+              href="https://wa.me/573000000000?text=Hola Melao! 🏢 Estoy interesado en una reserva empresarial o evento corporativo."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 neon-button py-6 px-12 rounded-2xl text-white font-black text-sm uppercase tracking-[0.2em] shadow-2xl shadow-brand-purple/30 active:scale-95 transition-all"
@@ -200,7 +200,7 @@ export default function Home() {
       <section className="px-6 py-24 max-w-4xl mx-auto text-center border-t border-white/5 mt-12">
           <div className="mb-12">
             <MapPin className="mx-auto text-brand-purple mb-4" size={32} />
-            <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-2">Boliroom Bogotá</h3>
+            <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-2">Melao Social Crew</h3>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Carrera 15 # 67 - 27 • Chapinero</p>
           </div>
           <a 

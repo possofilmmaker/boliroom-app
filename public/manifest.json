@@ -1,7 +1,7 @@
 {
-  "name": "Boliroom Bogotá",
-  "short_name": "Boliroom",
-  "description": "App oficial de Boliroom para reservas y menú digital.",
+  "name": "Melao Social Crew Bogotá",
+  "short_name": "Melao",
+  "description": "App oficial de Melao para reservas y menú digital.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#020617",

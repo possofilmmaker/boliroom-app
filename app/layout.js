@@ -6,8 +6,8 @@ import WhatsAppFab from "@/components/WhatsAppFab";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Boliroom Bogotá | El mejor ambiente y coctelería",
-  description: "Reserva tu mesa en Boliroom Bogotá. Disfruta de la mejor coctelería, juegos y el ambiente más social de la ciudad. Carrera 15 # 67 - 27.",
+  title: "Melao Social Crew Bogotá | El mejor ambiente y coctelería",
+  description: "Reserva tu mesa en Melao Social Crew Bogotá. Disfruta de la mejor coctelería, juegos y el ambiente más social de la ciudad. Carrera 15 # 67 - 27.",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
