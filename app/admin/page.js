@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Users, CheckCircle, Clock, XCircle, MoreVertical, Edit2, Check, X, Star, TrendingUp } from "lucide-react";
+import { Users, CheckCircle, Clock, XCircle, MoreVertical, Edit2, Check, X, Star, TrendingUp, Grid } from "lucide-react";
 import { db } from "@/lib/firebase";
 import { collection, query, orderBy, onSnapshot, doc, updateDoc } from "firebase/firestore";
 
@@ -196,6 +196,8 @@ export default function AdminDashboard() {
               </span>
             </div>
           </div>
+        </div>
+      </div>
     </div>
   );
 }
