@@ -81,7 +81,9 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter font-monument">BUENA MÚSICA</h2>
           </div>
         </div>
-      </secti      {/* Features Grid */}
+      </section>
+
+      {/* Features Grid */}
       <section className="px-6 py-32 max-w-7xl mx-auto relative">
         {/* Decorative Leaf */}
         <img src="/images/palm_leaf.svg" alt="" className="absolute -top-20 -left-20 w-64 h-64 opacity-5 rotate-45 pointer-events-none" />
