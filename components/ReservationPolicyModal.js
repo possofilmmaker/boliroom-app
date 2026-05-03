@@ -84,7 +84,7 @@ export default function ReservationPolicyModal({ isOpen, onClose }) {
                     <h4 className="text-melao-green font-black uppercase tracking-tighter text-lg font-monument">MÁS QUE JUEGOS</h4>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                    {['Arcade Classics', 'Beerpong', 'Subsoccer', 'Juegos de Mesa'].map((game) => (
+                    {['Arcade Retro', 'Beerpong', 'Subsoccer', 'Juegos de Mesa'].map((game) => (
                         <div key={game} className="flex items-center gap-2 text-[8px] font-black text-melao-green/60 uppercase tracking-widest bg-melao-cream p-2.5 rounded-xl">
                             <Zap size={10} className="text-melao-coral" />
                             {game}

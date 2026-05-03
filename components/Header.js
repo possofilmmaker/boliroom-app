@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, CalendarPlus, Beer, Sparkles } from "lucide-react";
+import { Home, CalendarPlus, Beer, Sparkles, Target } from "lucide-react";
 
 const Logo = () => (
   <div className="flex flex-col items-center">
@@ -28,7 +28,7 @@ export default function Header() {
     { name: "Inicio", path: "/", icon: Home },
     { name: "Eventos", path: "/eventos", icon: Sparkles },
     { name: "Menú", path: "/menu", icon: Beer },
-    { name: "Juegos", path: "/juegos", icon: Home },
+    { name: "Juegos", path: "/juegos", icon: Target },
   ];
 
   return (

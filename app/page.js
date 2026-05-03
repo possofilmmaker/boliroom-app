@@ -81,16 +81,17 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter font-monument">BUENA MÚSICA</h2>
           </div>
         </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="px-6 py-32 max-w-7xl mx-auto">
+      </secti      {/* Features Grid */}
+      <section className="px-6 py-32 max-w-7xl mx-auto relative">
+        {/* Decorative Leaf */}
+        <img src="/images/palm_leaf.svg" alt="" className="absolute -top-20 -left-20 w-64 h-64 opacity-5 rotate-45 pointer-events-none" />
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { title: "TRAGOS DE AUTOR", desc: "Cócteles creativos con el sabor de Melao.", icon: Beer, color: "bg-melao-coral" },
-            { title: "JUEGOS Y RETOS", desc: "Beer pong, dados y más. ¿Aceptas el reto?", icon: Target, color: "bg-melao-yellow" },
-            { title: "MÚSICA EN VIVO", desc: "Los mejores DJs y la energía que te mueve.", icon: Music, color: "bg-melao-teal" },
-            { title: "EVENTOS CADA SEMANA", desc: "Noches temáticas que no te puedes perder.", icon: CalendarCheck, color: "bg-melao-pink" },
+            { title: "TRAGOS DE AUTOR", desc: "Cócteles creativos con el sabor de Melao.", icon: Beer, color: "bg-melao-coral", link: "/menu" },
+            { title: "JUEGOS Y RETOS", desc: "Beer pong, dados y más. ¿Aceptas el reto?", icon: Target, color: "bg-melao-yellow", link: "/juegos" },
+            { title: "MÚSICA EN VIVO", desc: "Los mejores DJs y la energía que te mueve.", icon: Music, color: "bg-melao-teal", link: "/eventos" },
+            { title: "EVENTOS CADA SEMANA", desc: "Noches temáticas que no te puedes perder.", icon: CalendarCheck, color: "bg-melao-pink", link: "/eventos" },
           ].map((item, i) => (
             <div key={i} className="melao-card group">
               <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-500`}>
@@ -98,7 +99,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-black mb-3">{item.title}</h3>
               <p className="text-melao-green/60 font-medium mb-6">{item.desc}</p>
-              <Link href="#" className="inline-flex items-center gap-2 text-melao-coral font-bold text-xs tracking-widest hover:gap-4 transition-all">
+              <Link href={item.link} className="inline-flex items-center gap-2 text-melao-coral font-bold text-xs tracking-widest hover:gap-4 transition-all">
                 VER MÁS <ArrowRight size={14} />
               </Link>
             </div>
@@ -108,6 +109,9 @@ export default function Home() {
 
       {/* Events Section */}
       <section className="px-6 py-20 bg-melao-cream relative overflow-hidden">
+        {/* Decorative Leaf */}
+        <img src="/images/palm_leaf.svg" alt="" className="absolute -bottom-20 -right-20 w-80 h-80 opacity-5 -rotate-12 pointer-events-none" />
+        
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="space-y-4">
@@ -128,7 +132,7 @@ export default function Home() {
               { date: "14 JUN", title: "RUMBA Y PERREO", tags: "OPEN FORMAT", time: "9:00 PM", img: "/images/salon.jpg" },
               { date: "21 JUN", title: "BEERPONG TOURNAMENT", tags: "PREMIOS + SHOTS", time: "7:00 PM", img: "/images/salon.jpg" },
             ].map((event, i) => (
-              <div key={i} className="group cursor-pointer">
+              <Link href="/eventos" key={i} className="group cursor-pointer">
                 <div className="relative h-96 rounded-[2.5rem] overflow-hidden mb-6 shadow-xl">
                   <img src={event.img} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                   <div className="absolute inset-0 bg-gradient-to-t from-melao-green to-transparent opacity-60"></div>
@@ -147,14 +151,14 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="px-6 py-32 max-w-7xl mx-auto">
+      <section className="px-6 py-32 max-w-7xl mx-auto relative">
         <div className="mb-16 space-y-4">
           <p className="text-melao-teal font-bold uppercase tracking-[0.4em] text-xs">GALERÍA</p>
           <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter font-monument">MOMENTOS <br/><span className="text-melao-coral">MELAO</span></h2>
@@ -169,8 +173,8 @@ export default function Home() {
         </div>
         
         <div className="mt-16 text-center">
-          <Link href="#" className="melao-button melao-button-primary bg-melao-teal inline-flex">
-            VER GALERÍA COMPLETA <Instagram size={20} className="ml-2" />
+          <Link href="https://instagram.com" target="_blank" className="melao-button melao-button-primary bg-melao-teal inline-flex">
+            SÍGUENOS EN INSTAGRAM <Instagram size={20} className="ml-2" />
           </Link>
         </div>
       </section>
@@ -196,7 +200,10 @@ export default function Home() {
       </section>
 
       {/* Actual Footer */}
-      <footer className="px-6 pt-32 pb-12 max-w-7xl mx-auto">
+      <footer className="px-6 pt-32 pb-12 max-w-7xl mx-auto relative">
+        {/* Decorative Leaf */}
+        <img src="/images/palm_leaf.svg" alt="" className="absolute top-40 right-10 w-48 h-48 opacity-5 rotate-180 pointer-events-none" />
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
             <div className="flex flex-col items-start">
@@ -205,11 +212,12 @@ export default function Home() {
                <span className="text-[8px] font-black uppercase tracking-[0.3em] opacity-40">Social Club Bogotá</span>
             </div>
             <div className="flex gap-4">
-              {[Instagram, Phone].map((Icon, i) => (
-                <a key={i} href="#" className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:bg-melao-coral hover:text-white transition-all">
-                  <Icon size={20} />
-                </a>
-              ))}
+              <a href="https://instagram.com" target="_blank" className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:bg-melao-coral hover:text-white transition-all">
+                <Instagram size={20} />
+              </a>
+              <a href="https://wa.me/573138139634" target="_blank" className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:bg-melao-coral hover:text-white transition-all">
+                <Phone size={20} />
+              </a>
             </div>
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-30">GOOD PEOPLE • GOOD VIBES</p>
           </div>
@@ -217,8 +225,14 @@ export default function Home() {
           <div className="space-y-6">
             <h4 className="text-xs font-black uppercase tracking-widest text-melao-coral">ENLACES</h4>
             <div className="grid grid-cols-2 gap-4">
-              {['Inicio', 'Eventos', 'Menú', 'Juegos', 'Galería', 'Reservas', 'Contacto'].map(link => (
-                <Link key={link} href="#" className="text-sm font-medium text-melao-green/60 hover:text-melao-green transition-colors">{link}</Link>
+              {[
+                { name: 'Inicio', path: '/' },
+                { name: 'Eventos', path: '/eventos' },
+                { name: 'Menú', path: '/menu' },
+                { name: 'Juegos', path: '/juegos' },
+                { name: 'Reservas', path: '/reserva' }
+              ].map(link => (
+                <Link key={link.name} href={link.path} className="text-sm font-medium text-melao-green/60 hover:text-melao-green transition-colors">{link.name}</Link>
               ))}
             </div>
           </div>
@@ -227,7 +241,7 @@ export default function Home() {
             <h4 className="text-xs font-black uppercase tracking-widest text-melao-coral">INFORMACIÓN</h4>
             <div className="flex flex-col gap-4">
               {['Acerca de nosotros', 'Trabaja con nosotros', 'Términos y condiciones', 'Política de privacidad'].map(link => (
-                <Link key={link} href="#" className="text-sm font-medium text-melao-green/60 hover:text-melao-green transition-colors">{link}</Link>
+                <Link key={link} href="/" className="text-sm font-medium text-melao-green/60 hover:text-melao-green transition-colors">{link}</Link>
               ))}
             </div>
           </div>
@@ -237,10 +251,10 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-sm font-medium text-melao-green/60 leading-loose">
                 📍 Bogotá, Colombia<br/>
-                📞 +57 300 123 4567<br/>
+                📞 +57 313 813 9634<br/>
                 ✉️ hola@melaosocialclub.com
               </p>
-              <img src="/images/onda_vector.png" alt="" className="w-24 opacity-20" />
+              <img src="/images/palm_leaf.svg" alt="" className="w-12 opacity-10" />
             </div>
           </div>
         </div>

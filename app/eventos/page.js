@@ -59,7 +59,14 @@ export default function EventosPage() {
   ];
 
   return (
-    <main className="px-6 pb-32 pt-32 max-w-4xl mx-auto min-h-screen bg-melao-cream">
+    <main className="px-6 pb-32 pt-32 max-w-4xl mx-auto min-h-screen bg-melao-cream relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-20 right-0 w-80 h-80 opacity-5 pointer-events-none translate-x-1/4">
+        <img src="/images/palm_leaf.svg" alt="" className="w-full h-full rotate-12" />
+      </div>
+      <div className="absolute top-[40%] left-0 w-96 h-96 opacity-5 pointer-events-none -translate-x-1/3">
+        <img src="/images/palm_leaf.svg" alt="" className="w-full h-full -rotate-45" />
+      </div>
       <Link href="/" className="inline-flex items-center gap-2 text-melao-green/40 hover:text-melao-green transition-colors text-[10px] font-black uppercase tracking-widest mb-12">
         <ArrowLeft size={16} /> Volver al Inicio
       </Link>

@@ -103,7 +103,14 @@ export default function MenuDigitalPage() {
   ];
 
   return (
-    <main className="pb-32 bg-melao-cream min-h-screen pt-24">
+    <main className="pb-32 bg-melao-cream min-h-screen pt-24 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-40 right-0 w-96 h-96 opacity-5 pointer-events-none translate-x-1/3">
+        <img src="/images/palm_leaf.svg" alt="" className="w-full h-full rotate-45" />
+      </div>
+      <div className="absolute bottom-40 left-0 w-96 h-96 opacity-5 pointer-events-none -translate-x-1/3">
+        <img src="/images/palm_leaf.svg" alt="" className="w-full h-full -rotate-12" />
+      </div>
       {/* Floating Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 flex justify-between items-center ${scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-melao-green/5' : 'bg-transparent'}`}>
         <Link href="/" className="w-10 h-10 bg-white border border-melao-green/5 flex items-center justify-center rounded-full shadow-md hover:bg-melao-coral hover:text-white transition-all">

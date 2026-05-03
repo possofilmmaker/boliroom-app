@@ -166,7 +166,14 @@ function ReservaForm() {
   };
 
   return (
-    <div className="min-h-screen bg-melao-cream pb-20 selection:bg-melao-coral selection:text-white pt-24">
+    <div className="min-h-screen bg-melao-cream pb-20 selection:bg-melao-coral selection:text-white pt-24 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-40 left-0 w-96 h-96 opacity-5 pointer-events-none -translate-x-1/2">
+        <img src="/images/palm_leaf.svg" alt="" className="w-full h-full -rotate-45" />
+      </div>
+      <div className="absolute bottom-40 right-0 w-96 h-96 opacity-5 pointer-events-none translate-x-1/2">
+        <img src="/images/palm_leaf.svg" alt="" className="w-full h-full rotate-12" />
+      </div>
       {/* Navigation */}
       <nav className="px-6 py-10 max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="group flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-melao-green/5 shadow-md hover:bg-melao-coral hover:text-white transition-all duration-500">
