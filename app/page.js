@@ -13,264 +13,302 @@ import {
   Zap,
   Monitor as Arcade,
   Instagram,
-  Phone
+  Phone,
+  Crown,
+  PlayCircle
 } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-brand-cream overflow-x-hidden">
-      {/* Hero Section - Melao Style */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 pb-20 px-6 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(232,84,58,0.06)_0%,transparent_50%)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,rgba(8,92,92,0.06)_0%,transparent_50%)]"></div>
-          
-          {/* Wavy squiggles decorativos — signature Melao Social Club */}
-          <div className="absolute top-20 right-10 opacity-25 rotate-12">
-            <svg width="220" height="44" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 20C20 20 30 10 50 10C70 10 80 30 100 30C120 30 130 10 150 10C170 10 180 30 200 30" stroke="#E8543A" strokeWidth="8" strokeLinecap="round"/>
-            </svg>
-          </div>
-          <div className="absolute bottom-40 left-[-50px] opacity-20 -rotate-12">
-            <svg width="300" height="60" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 20C20 20 30 10 50 10C70 10 80 30 100 30C120 30 130 10 150 10C170 10 180 30 200 30" stroke="#085C5C" strokeWidth="6" strokeLinecap="round"/>
-            </svg>
-          </div>
-          <div className="absolute top-1/2 left-1/4 opacity-10">
-            <svg width="120" height="24" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 20C20 20 30 10 50 10C70 10 80 30 100 30C120 30 130 10 150 10C170 10 180 30 200 30" stroke="#F5B942" strokeWidth="8" strokeLinecap="round"/>
-            </svg>
-          </div>
-        </div>
+    <main className="min-h-screen melao-nocturnal overflow-x-hidden relative">
+      {/* Cinematic Background Grid */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[radial-gradient(#ffffff10_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
 
-        <div className="relative z-10 max-w-6xl mx-auto w-full text-center">
-           <div className="inline-block px-6 py-2 bg-brand-yellow text-brand-dark font-black uppercase tracking-[0.2em] text-[10px] border-2 border-brand-dark mb-8 rotate-[-2deg]">
-             BUEN PLAN • BUENA GENTE • BUENA MÚSICA
+      {/* Hero Section - High-End Nocturnal */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-20 px-6 overflow-hidden">
+        {/* Dynamic Light Orbs */}
+        <div className="absolute top-[10%] left-[10%] w-[40%] h-[40%] bg-brand-coral/20 blur-[150px] rounded-full animate-pulse"></div>
+        <div className="absolute bottom-[10%] right-[10%] w-[40%] h-[40%] bg-brand-teal/20 blur-[150px] rounded-full animate-pulse delay-700"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full text-center">
+           <div className="inline-flex items-center gap-3 px-8 py-3 melao-glass border border-white/10 rounded-full text-brand-yellow font-black uppercase tracking-[0.4em] text-[10px] mb-16 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-top-4 duration-1000">
+             <span className="w-2.5 h-2.5 bg-brand-coral rounded-full animate-ping"></span>
+             NOCTURNAL TROPICAL SOPHISTICATION
            </div>
            
-           {/* Logo hero — wavy squiggle signature */}
-           <div className="flex justify-center mb-3">
-             <svg width="120" height="22" viewBox="0 0 120 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M0 11C10 11 15 4 25 4C35 4 40 18 50 18C60 18 65 4 75 4C85 4 90 18 100 18C110 18 115 11 120 11" stroke="#085C5C" strokeWidth="4" strokeLinecap="round"/>
-             </svg>
-           </div>
-
-           <div className="relative mb-6">
-              <h1 className="text-8xl md:text-[12rem] font-black tracking-tighter text-brand-teal uppercase leading-[0.85] relative z-10">
+           <div className="relative mb-16 animate-in zoom-in-95 duration-1000">
+              <h1 className="text-[10rem] md:text-[18rem] font-black tracking-tighter text-white uppercase leading-[0.75] mb-4 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 MELAO
               </h1>
-              <div className="absolute -top-4 -right-4 md:-top-8 md:-right-8 bg-brand-coral text-white px-4 py-2 md:px-6 md:py-3 border-4 border-brand-dark rotate-[10deg] font-black text-xl md:text-3xl uppercase tracking-widest z-20">
-                SOCIAL CLUB
+              <div className="flex items-center justify-center gap-6 md:gap-12">
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent hidden md:block"></div>
+                <h2 className="text-4xl md:text-8xl font-black text-brand-coral uppercase tracking-[0.25em] italic drop-shadow-lg">
+                  SOCIAL CLUB
+                </h2>
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent hidden md:block"></div>
+              </div>
+              
+              {/* Premium Floating Badge */}
+              <div className="absolute -top-12 -right-4 md:-top-20 md:right-32 melao-glass border border-white/20 text-white px-8 py-6 rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] rotate-12 font-black text-xl md:text-3xl uppercase tracking-tighter z-20 backdrop-blur-3xl group cursor-default hover:rotate-0 transition-transform duration-700">
+                Bogotá <br/> <span className="text-[10px] opacity-40 tracking-[0.2em]">CARRERA 15</span>
+                <div className="absolute -top-3 -right-3 w-8 h-8 bg-brand-yellow rounded-full flex items-center justify-center border-2 border-[#042D2D] animate-bounce">
+                  <Crown size={14} className="text-brand-dark" />
+                </div>
               </div>
            </div>
            
-           <p className="text-brand-dark text-lg md:text-2xl max-w-2xl mx-auto mb-12 font-bold leading-relaxed">
-             No es solo un bar, es un universo donde <span className="wavy-underline">pasan cosas</span>.
+           <p className="text-white/80 text-2xl md:text-4xl max-w-4xl mx-auto mb-20 font-medium leading-[1.1] tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+             Donde el <span className="text-brand-coral font-black italic">ritmo caribeño</span> se encuentra con la <span className="text-brand-yellow font-black">clase mundial</span>. Una experiencia diseñada para los que saben vivir.
            </p>
 
-           <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-2xl mx-auto px-4">
-             <Link href="/reserva" className="flex-1">
-               <div className="melao-button-primary py-5 px-8 rounded-2xl flex items-center justify-center gap-3">
-                 <CalendarCheck size={24} />
-                 <span className="text-base">Reserva tu Mesa</span>
+           <div className="flex flex-col sm:flex-row gap-8 justify-center w-full max-w-4xl mx-auto px-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+             <Link href="/reserva" className="group flex-1">
+               <div className="melao-button-primary py-10 px-12 rounded-[2.5rem] flex items-center justify-center gap-5 text-2xl shadow-[0_30px_60px_rgba(232,84,58,0.4)] group-hover:scale-[1.02] group-hover:-translate-y-1 transition-all duration-500">
+                 <CalendarCheck size={32} strokeWidth={2.5} />
+                 <span>RESERVAR AHORA</span>
                </div>
              </Link>
-             <Link href="/menu" className="flex-1">
-               <div className="melao-button-secondary py-5 px-8 rounded-2xl flex items-center justify-center gap-3">
-                 <Music size={24} />
-                 <span className="text-base">Ver el Menú</span>
+             <Link href="/menu" className="group flex-1">
+               <div className="melao-glass border border-white/10 py-10 px-12 rounded-[2.5rem] flex items-center justify-center gap-5 text-2xl text-white shadow-2xl group-hover:bg-white/10 group-hover:scale-[1.02] group-hover:-translate-y-1 transition-all duration-500">
+                 <Sparkles size={32} strokeWidth={2.5} className="text-brand-yellow" />
+                 <span>VER MENÚ</span>
                </div>
              </Link>
            </div>
+        </div>
+        
+        {/* Scroll indicator with animation */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
+          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white">The Experience</span>
+          <div className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-brand-coral animate-scroll-indicator"></div>
+          </div>
         </div>
       </section>
 
-      {/* Experience Areas Section */}
-      <section className="px-6 py-24 max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-           <h2 className="text-5xl md:text-7xl font-black text-brand-dark uppercase tracking-tighter mb-2 leading-none">
-             NUESTRO <span className="text-brand-coral">MUNDO</span>
-           </h2>
-           {/* Squiggle decorativo bajo el título */}
-           <div className="flex justify-center mb-4">
-             <svg width="80" height="14" viewBox="0 0 80 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M0 7C8 7 12 2 20 2C28 2 32 12 40 12C48 12 52 2 60 2C68 2 72 12 80 12" stroke="#085C5C" strokeWidth="3" strokeLinecap="round"/>
-             </svg>
+      {/* Experience Areas - Glass Editorial */}
+      <section className="px-6 py-48 max-w-[90rem] mx-auto relative">
+        <div className="absolute top-[20%] right-[10%] w-[60rem] h-[60rem] bg-brand-teal/5 blur-[150px] rounded-full -z-10 animate-pulse"></div>
+        
+        <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between gap-12">
+           <div className="space-y-4">
+              <h2 className="text-8xl md:text-[12rem] font-black text-white uppercase tracking-tighter leading-[0.75]">
+                DOS <br/><span className="text-brand-yellow italic">MUNDOS</span>
+              </h2>
+              <div className="flex items-center gap-8 pt-6">
+                 <div className="h-[2px] w-32 bg-brand-coral"></div>
+                 <p className="text-brand-teal font-black uppercase tracking-[0.4em] text-sm">Altos estándares • Alta vibración</p>
+              </div>
            </div>
-           <p className="text-brand-teal font-black uppercase tracking-widest text-sm">Dos niveles de pura actitud en Bogotá</p>
+           <p className="text-white/40 text-xl max-w-md font-medium uppercase tracking-widest leading-relaxed">
+             Cada nivel es una atmósfera distinta. Cada rincón una historia por contar.
+           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
            {/* Level 2: VIP Karaoke & Games */}
-           <div className="melao-card overflow-hidden group">
-              <div className="relative h-64 overflow-hidden border-b-2 border-brand-dark">
-                <img src="/images/salon.jpg" alt="Piso 2" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute top-4 left-4 bg-brand-coral text-white px-4 py-1 font-black uppercase text-xs border-2 border-brand-dark">
-                  Piso 2
+           <div className="group relative">
+              <div className="relative h-[700px] rounded-[4rem] overflow-hidden melao-glass border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] group-hover:translate-y-[-20px] transition-all duration-1000">
+                <img src="/images/salon.jpg" alt="Piso 2" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#042D2D] via-[#042D2D]/20 to-transparent"></div>
+                
+                <div className="absolute top-12 left-12 melao-glass border border-white/20 px-8 py-3 rounded-full font-black uppercase text-xs text-white tracking-[0.3em]">
+                  Level 02
+                </div>
+
+                <div className="absolute bottom-16 left-16 right-16">
+                  <h3 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
+                    VIP SUITES <br/><span className="text-brand-coral">& GAMING</span>
+                  </h3>
+                  <div className="flex flex-wrap gap-4">
+                    {['Karaoke High-End', 'Arcade Classics', 'Private Lounges', 'Cocktail Bar'].map(item => (
+                      <div key={item} className="px-6 py-3 melao-glass border border-white/10 text-[10px] font-black uppercase tracking-[0.2em] text-white rounded-2xl group-hover:border-brand-yellow transition-colors">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-brand-yellow border-2 border-brand-dark rounded-xl">
-                    <Mic className="text-brand-dark" size={24} />
-                  </div>
-                  <h3 className="text-2xl font-black text-brand-dark uppercase tracking-tighter">VIP Suites & Gaming</h3>
-                </div>
-                <p className="text-brand-dark/70 font-medium mb-8 leading-relaxed">
-                  Salones privados con Karaoke Pro unificables para parches grandes. Además, zona arcade clásica y beerpong.
+              <div className="mt-12 px-8 space-y-8">
+                <p className="text-white/60 text-2xl font-medium leading-relaxed italic">
+                  "El secreto mejor guardado de Bogotá. Donde la exclusividad no es una opción, es la esencia."
                 </p>
-                <div className="flex flex-wrap gap-2">
-                   {['Karaoke Pro', 'Arcade', 'Beerpong', 'VIP Rooms'].map(item => (
-                     <span key={item} className="px-3 py-1 bg-brand-cream border-2 border-brand-dark text-[10px] font-black uppercase tracking-wider rounded-full">
-                       {item}
-                     </span>
-                   ))}
-                </div>
+                <Link href="/reserva" className="inline-flex items-center gap-4 text-brand-yellow font-black uppercase tracking-[0.4em] text-sm group/link">
+                  RESERVAR MI ESPACIO <div className="w-12 h-12 melao-glass rounded-full flex items-center justify-center group-hover/link:bg-brand-yellow group-hover/link:text-brand-dark transition-all duration-500"><ArrowRight size={24} /></div>
+                </Link>
               </div>
            </div>
 
            {/* Level 3: Melao-Roof */}
-           <div className="melao-card overflow-hidden group">
-              <div className="relative h-64 overflow-hidden border-b-2 border-brand-dark">
-                <img src="/images/terraza.jpg" alt="Piso 3" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute top-4 left-4 bg-brand-mint text-white px-4 py-1 font-black uppercase text-xs border-2 border-brand-dark">
-                  Piso 3
+           <div className="group relative lg:mt-48">
+              <div className="relative h-[700px] rounded-[4rem] overflow-hidden melao-glass border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] group-hover:translate-y-[-20px] transition-all duration-1000">
+                <img src="/images/terraza.jpg" alt="Piso 3" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#042D2D] via-[#042D2D]/20 to-transparent"></div>
+                
+                <div className="absolute top-12 left-12 melao-glass border border-white/20 px-8 py-3 rounded-full font-black uppercase text-xs text-white tracking-[0.3em]">
+                  Level 03
+                </div>
+
+                <div className="absolute bottom-16 left-16 right-16">
+                  <h3 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
+                    MELAO <br/><span className="text-brand-teal">ROOF-TOP</span>
+                  </h3>
+                  <div className="flex flex-wrap gap-4">
+                    {['Bolirana Pro', 'Sky View Bar', 'Outdoor Beats', 'Tropical Vibes'].map(item => (
+                      <div key={item} className="px-6 py-3 melao-glass border border-white/10 text-[10px] font-black uppercase tracking-[0.2em] text-white rounded-2xl group-hover:border-brand-teal transition-colors">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-brand-coral border-2 border-brand-dark rounded-xl">
-                    <Target className="text-white" size={24} />
-                  </div>
-                  <h3 className="text-2xl font-black text-brand-dark uppercase tracking-tighter">Melao-Roof Terrace</h3>
-                </div>
-                <p className="text-brand-dark/70 font-medium mb-8 leading-relaxed">
-                  Nuestra terraza social al aire libre. 3 boliranas pro, subsoccer y el mejor spot para comer y tomar bajo el cielo.
+              <div className="mt-12 px-8 space-y-8">
+                <p className="text-white/60 text-2xl font-medium leading-relaxed italic">
+                  "Bajo las estrellas, con la 15 a tus pies. El spot donde el atardecer se convierte en leyenda."
                 </p>
-                <div className="flex flex-wrap gap-2">
-                   {['Bolirana Pro', 'Subsoccer', 'Outdoor', 'Cocktails'].map(item => (
-                     <span key={item} className="px-3 py-1 bg-brand-cream border-2 border-brand-dark text-[10px] font-black uppercase tracking-wider rounded-full">
-                       {item}
-                     </span>
-                   ))}
-                </div>
+                <Link href="/reserva" className="inline-flex items-center gap-4 text-brand-teal font-black uppercase tracking-[0.4em] text-sm group/link">
+                  EXPLORAR LA TERRAZA <div className="w-12 h-12 melao-glass rounded-full flex items-center justify-center group-hover/link:bg-brand-teal group-hover/link:text-white transition-all duration-500"><ArrowRight size={24} /></div>
+                </Link>
               </div>
            </div>
         </div>
       </section>
 
-      {/* Events / Community Section */}
-      <section className="bg-brand-teal py-24 px-6 border-y-4 border-brand-dark relative overflow-hidden">
-         {/* Squiggle background */}
-         <div className="absolute top-0 right-0 opacity-10">
-            <svg width="400" height="400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="2" strokeDasharray="5 5" />
-            </svg>
+      {/* Events / Community - High Contrast */}
+      <section className="bg-white py-48 px-6 relative overflow-hidden">
+         {/* Sharp Geometric Decoration */}
+         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#042D2D] to-transparent"></div>
+         <div className="absolute -right-20 top-1/4 opacity-5 rotate-12">
+            <h2 className="text-[30rem] font-black text-brand-dark leading-none select-none">M</h2>
          </div>
 
-         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="text-white space-y-8">
-               <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
-                  VIVE LA <br/><span className="text-brand-yellow">EXPERIENCIA</span>
-               </h2>
-               {/* Squiggle amarillo — acento energizante */}
-               <div>
-                 <svg width="90" height="16" viewBox="0 0 90 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M0 8C9 8 13.5 2 22.5 2C31.5 2 36 14 45 14C54 14 58.5 2 67.5 2C76.5 2 81 14 90 14" stroke="#F5B942" strokeWidth="3.5" strokeLinecap="round"/>
-                 </svg>
+         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center relative z-10">
+            <div className="space-y-12">
+               <div className="space-y-6">
+                 <h3 className="text-brand-coral font-black uppercase tracking-[0.5em] text-xs">Agenda Exclusiva</h3>
+                 <h2 className="text-8xl md:text-[10rem] font-black text-brand-dark uppercase tracking-tighter leading-[0.75]">
+                    NOCHES <br/><span className="text-brand-teal">MELAO</span>
+                  </h2>
                </div>
-               <p className="text-brand-cream/80 text-xl font-medium leading-relaxed">
-                  Desde torneos de Beerpong hasta noches de DJ en vivo y fiestas temáticas. Melao Social Club es el punto de encuentro de la cultura social en Bogotá.
+               <p className="text-brand-dark/60 text-2xl md:text-3xl font-medium leading-tight max-w-xl">
+                  Desde torneos Pro de Bolirana hasta DJ sets de talla internacional. El pulso de Bogotá late aquí.
                </p>
-               <Link href="/eventos" className="inline-flex items-center gap-4 bg-brand-coral text-white px-8 py-4 border-2 border-brand-dark shadow-[4px_4px_0px_#1C1C1C] font-black uppercase tracking-widest hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#1C1C1C] transition-all">
-                  Próximos Eventos <ArrowRight size={20} />
+               <Link href="/eventos" className="melao-button-primary py-8 px-12 rounded-[2rem] text-xl inline-flex items-center gap-6 shadow-[0_20px_40px_rgba(232,84,58,0.3)] hover:scale-105 transition-transform duration-500">
+                  CALENDARIO COMPLETO <ArrowRight size={28} />
                </Link>
             </div>
             
-            <div className="grid grid-cols-2 gap-6">
-               <div className="bg-white border-2 border-brand-dark p-6 rounded-3xl transform rotate-[-3deg] hover:rotate-0 transition-transform">
-                  <Music className="text-brand-coral mb-4" size={40} />
-                  <h4 className="text-brand-dark font-black uppercase text-lg">DJ Sets</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+               <div className="bg-brand-dark p-12 rounded-[3.5rem] shadow-2xl transform lg:-translate-y-12 rotate-[-2deg] hover:rotate-0 transition-transform duration-700">
+                  <Music className="text-brand-yellow mb-8" size={64} strokeWidth={2} />
+                  <h4 className="text-white font-black uppercase text-3xl tracking-tighter mb-4">DJ SELECTORS</h4>
+                  <p className="text-white/40 text-sm leading-relaxed uppercase tracking-widest font-bold">Residencias exclusivas • Afro & Latin Beats</p>
                </div>
-               <div className="bg-brand-yellow border-2 border-brand-dark p-6 rounded-3xl transform rotate-[3deg] hover:rotate-0 transition-transform">
-                  <Zap className="text-brand-dark mb-4" size={40} />
-                  <h4 className="text-brand-dark font-black uppercase text-lg">Fiestas</h4>
+               <div className="bg-brand-teal p-12 rounded-[3.5rem] shadow-2xl transform lg:translate-y-12 rotate-[2deg] hover:rotate-0 transition-transform duration-700">
+                  <Zap className="text-white mb-8" size={64} strokeWidth={2} />
+                  <h4 className="text-white font-black uppercase text-3xl tracking-tighter mb-4">TAKEOVERS</h4>
+                  <p className="text-white/20 text-sm leading-relaxed uppercase tracking-widest font-bold">Noches temáticas • Experiencias Inmersivas</p>
                </div>
             </div>
          </div>
       </section>
 
-      {/* Corporate Section */}
-      <section className="px-6 py-32 text-center relative">
-         <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center justify-center p-4 bg-brand-coral border-2 border-brand-dark rounded-full mb-8">
-               <Arcade className="text-white" size={32} />
+      {/* Corporate - Premium Section */}
+      <section className="px-6 py-64 text-center relative overflow-hidden melao-nocturnal">
+         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-brand-coral/5 blur-[200px] rounded-full animate-pulse"></div>
+         
+         <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="inline-flex items-center justify-center w-28 h-28 melao-glass border border-white/20 rounded-[3rem] mb-16 shadow-2xl transform rotate-12 hover:rotate-0 transition-all duration-700">
+               <Arcade className="text-brand-yellow" size={56} strokeWidth={2} />
             </div>
-            <h2 className="text-5xl md:text-7xl font-black text-brand-dark uppercase tracking-tighter mb-8 leading-none">
-              RESERVAS <br/> <span className="text-brand-mint italic">EMPRESARIALES</span>
+            <h2 className="text-8xl md:text-[13rem] font-black text-white uppercase tracking-tighter mb-12 leading-[0.75]">
+              CORPORATE <br/> <span className="text-brand-coral italic">ELITE</span>
             </h2>
-            <p className="text-brand-dark/70 text-lg md:text-xl font-bold max-w-2xl mx-auto mb-12">
-               Eleva el nivel de tus eventos corporativos o cierres de año. Ofrecemos privacidad, catering y la mejor integración de la ciudad.
+            <p className="text-white/60 text-2xl md:text-4xl font-medium max-w-4xl mx-auto mb-20 leading-[1.1] tracking-tight">
+               El escenario perfecto para marcas que no siguen reglas. Lanzamientos, team buildings y eventos con <span className="text-brand-yellow font-black">carácter disruptivo</span>.
             </p>
             <a 
               href="https://wa.me/573000000000?text=Hola%20Melao%20Social%20Club!%20%F0%9F%8F%A2%20Estoy%20interesado%20en%20una%20reserva%20empresarial."
               target="_blank"
               rel="noopener noreferrer"
-              className="melao-button-primary py-6 px-12 rounded-2xl text-lg inline-flex items-center gap-3"
+              className="melao-button-primary py-10 px-20 rounded-[2.5rem] text-2xl inline-flex items-center gap-6 shadow-[0_30px_60px_rgba(232,84,58,0.4)] hover:scale-[1.05] transition-all duration-500"
             >
-              Cotizar Evento <Zap size={24} />
+              COTIZAR EXPERIENCIA <Phone size={32} />
             </a>
          </div>
       </section>
 
-      {/* Footer / Location */}
-      <footer className="bg-brand-cream border-t-4 border-brand-dark px-6 py-20 pb-32">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-            <div className="space-y-6">
-               {/* Footer Logo */}
-               <div className="flex flex-col items-start">
-                 <svg width="56" height="11" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1">
-                   <path d="M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6" stroke="#085C5C" strokeWidth="3" strokeLinecap="round"/>
-                 </svg>
-                 <h3 className="text-4xl font-black text-brand-dark uppercase tracking-tighter">MELAO</h3>
-                 <div className="flex items-center gap-1 mt-0.5">
-                   <div className="h-[1.5px] w-4 bg-brand-dark"></div>
-                   <span className="text-[9px] font-black text-brand-dark tracking-[0.3em]">SOCIAL CLUB</span>
-                   <div className="h-[1.5px] w-4 bg-brand-dark"></div>
+      {/* Footer - Cinematic Ending */}
+      <footer className="bg-black text-white px-6 py-32 relative overflow-hidden border-t border-white/5">
+          <div className="absolute inset-0 tropical-pattern opacity-5 scale-150 grayscale"></div>
+          
+          <div className="relative z-10 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-32 items-start mb-32">
+              <div className="space-y-12">
+                 <div className="flex flex-col items-start gap-4">
+                   <h3 className="text-7xl font-black text-white uppercase tracking-tighter leading-none">MELAO</h3>
+                   <div className="flex items-center gap-4">
+                      <div className="h-[1px] w-12 bg-brand-coral"></div>
+                      <span className="text-[10px] font-black text-brand-yellow tracking-[0.6em] uppercase opacity-60">Est. 2024 • BOG</span>
+                   </div>
                  </div>
-               </div>
-               <p className="text-brand-dark font-bold uppercase tracking-widest text-xs">Carrera 15 # 67 - 27 • Chapinero, Bogotá</p>
-               <div className="flex gap-4">
-                  <a href="#" className="p-3 bg-white border-2 border-brand-dark rounded-full hover:bg-brand-yellow transition-colors">
-                     <Instagram size={20} />
-                  </a>
-                  <a href="#" className="p-3 bg-white border-2 border-brand-dark rounded-full hover:bg-brand-coral hover:text-white transition-colors">
-                     <Phone size={20} />
-                  </a>
-               </div>
+                 <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-[11px] leading-loose">
+                   CARRERA 15 # 67 - 27 <br/> 
+                   BOGOTÁ D.C. • COLOMBIA
+                 </p>
+                 <div className="flex gap-6">
+                    <a href="#" className="w-16 h-16 melao-glass border border-white/10 rounded-3xl flex items-center justify-center hover:bg-brand-coral hover:border-brand-coral transition-all duration-500 group">
+                       <Instagram size={28} className="group-hover:scale-110 transition-transform" />
+                    </a>
+                    <a href="#" className="w-16 h-16 melao-glass border border-white/10 rounded-3xl flex items-center justify-center hover:bg-brand-teal hover:border-brand-teal transition-all duration-500 group">
+                       <PlayCircle size={28} className="group-hover:scale-110 transition-transform" />
+                    </a>
+                 </div>
+              </div>
+              
+              <div className="lg:col-span-2">
+                 <div className="relative group cursor-pointer">
+                   <div className="absolute inset-0 bg-brand-coral rounded-[4rem] blur-[80px] opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                   <div className="melao-glass-dark p-2 h-[500px] rounded-[4rem] relative overflow-hidden flex items-center justify-center border-white/5 shadow-2xl transition-all duration-700">
+                      <div className="text-center z-20 p-12 melao-glass border border-white/10 rounded-[3rem] backdrop-blur-3xl">
+                         <div className="w-20 h-20 bg-brand-coral rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <MapPin className="text-white" size={40} />
+                         </div>
+                         <h4 className="font-black uppercase text-4xl tracking-tighter mb-4 italic">JOIN THE CLUB</h4>
+                         <p className="text-white/40 text-sm font-medium mb-12 tracking-[0.2em] uppercase">Estamos en el epicentro de la energía.</p>
+                         <a 
+                           href="https://maps.google.com/?q=Carrera+15+%23+67+-+27+Bogota" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           className="px-12 py-5 melao-button-primary rounded-full text-sm font-black uppercase tracking-[0.3em] shadow-xl"
+                         >
+                           OBTENER DIRECCIONES
+                         </a>
+                      </div>
+                      <div className="absolute inset-0 opacity-20 grayscale group-hover:opacity-30 group-hover:scale-105 transition-all duration-[3s]">
+                        <div className="w-full h-full bg-[url('https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/-74.0628,4.6543,15,0/1200x800?access_token=none')] bg-cover"></div>
+                      </div>
+                   </div>
+                 </div>
+              </div>
             </div>
             
-            <div className="md:col-span-2">
-               <div className="melao-card p-6 h-64 bg-slate-200 relative overflow-hidden flex items-center justify-center">
-                  {/* Map Placeholder */}
-                  <div className="text-center z-10">
-                     <MapPin className="mx-auto text-brand-coral mb-2" size={40} />
-                     <p className="font-black uppercase text-brand-dark">Ver en Google Maps</p>
-                  </div>
-                  <a 
-                    href="https://maps.google.com/?q=Carrera+15+%23+67+-+27+Bogota" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 z-20"
-                  ></a>
-               </div>
+            <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
+              <div className="flex gap-12">
+                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/20 hover:text-brand-coral cursor-pointer transition-colors">Terminos</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/20 hover:text-brand-coral cursor-pointer transition-colors">Privacidad</span>
+              </div>
+              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/10">© 2024 MELAO SOCIAL CLUB. THE NOCTURNAL EXPERIENCE.</p>
+              <div className="flex items-center gap-3">
+                 <div className="w-2 h-2 bg-brand-teal rounded-full"></div>
+                 <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/20">BOGOTÁ • COL</span>
+              </div>
             </div>
           </div>
       </footer>
     </main>
   );
 }
-

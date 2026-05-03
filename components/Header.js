@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, CalendarPlus, MapPin, Beer, Sparkles } from "lucide-react";
+import { Home, CalendarPlus, MapPin, Beer, Sparkles, Zap } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,63 +18,67 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-cream border-b-4 border-brand-dark h-20">
-      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl melao-glass border border-white/10 rounded-[2.5rem] h-24 shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden backdrop-blur-3xl">
+      <div className="px-10 h-full flex items-center justify-between relative">
+        {/* Decorative background pulse */}
+        <div className="absolute top-[-50%] left-[-10%] w-64 h-64 bg-brand-coral/10 blur-[80px] rounded-full"></div>
+        <div className="absolute bottom-[-50%] right-[-10%] w-64 h-64 bg-brand-teal/10 blur-[80px] rounded-full"></div>
+
         {/* Logo — Melao Social Club */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group relative z-10">
           <div className="flex flex-col items-center leading-none">
             {/* Wavy squiggle — elemento signature */}
-            <svg width="48" height="10" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-0.5 group-hover:scale-110 transition-transform">
-              <path d="M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6" stroke="#085C5C" strokeWidth="3.5" strokeLinecap="round"/>
+            <svg width="50" height="10" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1 group-hover:scale-125 transition-transform duration-700">
+              <path d="M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6" stroke="#E8543A" strokeWidth="4" strokeLinecap="round"/>
             </svg>
             <div className="flex items-end gap-0">
-              <span className="text-2xl font-black tracking-tighter text-brand-dark leading-none">MELAO</span>
+              <span className="text-2xl font-black tracking-tighter text-white leading-none italic">MELAO</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="h-[1.5px] w-3 bg-brand-dark"></div>
-              <span className="text-[8px] font-black text-brand-dark tracking-[0.25em] leading-none">SOCIAL CLUB</span>
-              <div className="h-[1.5px] w-3 bg-brand-dark"></div>
+            <div className="flex items-center gap-2 opacity-40">
+              <div className="h-[1px] w-3 bg-white"></div>
+              <span className="text-[7px] font-black text-white tracking-[0.4em] leading-none uppercase">Social Club</span>
+              <div className="h-[1px] w-3 bg-white"></div>
             </div>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-12 relative z-10">
           {navItems.map((item) => {
             const isActive = pathname === item.path;
+            const Icon = item.icon;
             return (
               <Link
                 key={item.name}
                 href={item.path}
-                className={`text-xs uppercase font-black tracking-widest transition-colors ${
-                  isActive ? "text-brand-coral" : "text-brand-dark/60 hover:text-brand-coral"
+                className={`flex items-center gap-2.5 text-[11px] uppercase font-black tracking-[0.2em] transition-all duration-500 ${
+                  isActive ? "text-brand-yellow" : "text-white/40 hover:text-white hover:scale-105"
                 }`}
               >
+                <Icon size={16} strokeWidth={isActive ? 3 : 2} className={isActive ? "text-brand-coral" : ""} />
                 {item.name}
               </Link>
             );
           })}
-          <a 
-            href="https://maps.google.com/?q=Carrera+15+%23+67+-+27+Bogota"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2 bg-brand-yellow border-2 border-brand-dark text-brand-dark text-xs font-black uppercase tracking-widest shadow-[4px_4px_0px_#1C1C1C] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#1C1C1C] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+          <Link 
+            href="/reserva"
+            className="px-8 py-3.5 melao-button-primary rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
           >
-            Ubicación
-          </a>
+            <Zap size={14} />
+            Reservar
+          </Link>
         </nav>
 
         {/* Mobile Reservation CTA */}
-        <div className="md:hidden">
+        <div className="md:hidden relative z-10">
           <Link 
             href="/reserva" 
-            className="text-[10px] font-black px-5 py-2 bg-brand-coral text-white border-2 border-brand-dark uppercase tracking-widest shadow-[4px_4px_0px_#1a202c]"
+            className="text-[10px] font-black px-6 py-3.5 bg-brand-coral text-white rounded-2xl uppercase tracking-[0.2em] shadow-[0_15px_30px_rgba(232,84,58,0.3)] active:scale-90 transition-all block"
           >
-            RESERVAR
+            BOOK NOW
           </Link>
         </div>
       </div>
     </header>
   );
 }
-

@@ -11,13 +11,13 @@ export default function WhatsAppFab() {
       href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-24 right-6 z-[90] bg-[#25D366] text-white p-4 rounded-full shadow-[0_8px_30px_rgb(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all animate-in fade-in zoom-in duration-500 group"
+      className="fixed bottom-32 right-6 z-[90] bg-[#25D366] text-white p-5 rounded-[2rem] shadow-[0_20px_50px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all animate-in fade-in zoom-in duration-700 group md:bottom-10"
       aria-label="Contactar por WhatsApp"
     >
-      <div className="absolute -top-12 right-0 bg-white text-slate-900 text-[10px] font-black px-3 py-1.5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-slate-100 pointer-events-none uppercase tracking-tighter">
+      <div className="absolute -top-14 right-0 melao-glass border border-white/20 text-white text-[10px] font-black px-4 py-2.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 whitespace-nowrap shadow-2xl pointer-events-none uppercase tracking-widest translate-y-2 group-hover:translate-y-0">
         ¿Eventos Corporativos? 🏢
       </div>
-      <MessageCircle size={28} fill="currentColor" />
+      <MessageCircle size={32} fill="currentColor" />
     </a>
   );
 }

@@ -10,14 +10,22 @@
   --color-brand-cream: #FCF8F0;      /* Crema suave — fondo base */
   --color-brand-dark: #1C1C1C;       /* Negro casi puro — texto/bordes */
   
-  --font-sans: 'Outfit', system-ui, sans-serif;
-  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-display: var(--font-epilogue), system-ui, sans-serif;
 }
 
 @layer base {
   :root {
     --background: #FCF8F0;
     --foreground: #1C1C1C;
+    --brand-teal: #085C5C;
+    --brand-coral: #E8543A;
+    --brand-yellow: #F5B942;
+  }
+
+  .dark {
+    --background: #042D2D; /* Deep Nocturnal Teal */
+    --foreground: #FCF8F0;
   }
 
   body {
@@ -27,58 +35,88 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
 }
 
 @layer utilities {
+  .melao-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .melao-glass-dark {
+    background: rgba(8, 92, 92, 0.6);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .melao-nocturnal {
+    background: radial-gradient(circle at top right, #0A4D4D, #042D2D);
+    color: #FCF8F0;
+  }
+
   .melao-card {
     background: white;
     border: 2px solid #1C1C1C;
     box-shadow: 6px 6px 0px #1C1C1C;
     border-radius: 1.5rem;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .melao-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px #1C1C1C;
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px #1C1C1C;
   }
 
   .melao-button-primary {
     background-color: #E8543A;
     color: white;
-    border: 2px solid #1C1C1C;
-    box-shadow: 4px 4px 0px #1C1C1C;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px -5px rgba(232, 84, 58, 0.4);
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.2s ease;
+    letter-spacing: 0.15em;
+    font-family: var(--font-display);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 9999px;
   }
 
   .melao-button-primary:hover {
-    background-color: #D44530;
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #1C1C1C;
-  }
-
-  .melao-button-primary:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0px 0px 0px #1C1C1C;
+    background-color: #f16b54;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(232, 84, 58, 0.6);
   }
 
   .melao-button-secondary {
-    background-color: #FCF8F0;
+    background-color: #F5B942;
     color: #1C1C1C;
     border: 2px solid #1C1C1C;
     box-shadow: 4px 4px 0px #1C1C1C;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    font-family: var(--font-display);
     transition: all 0.2s ease;
   }
 
-  .melao-button-secondary:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #1C1C1C;
+  .tropical-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66 3c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-46-43c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm20-46c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM32 6c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm18 40c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm16 48c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM82 94c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 14c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM10 52c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm76-10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM44 70c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm40-2c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-32-18c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-18-30c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm54 10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23085c5c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  .text-gradient-melao {
+    background: linear-gradient(135deg, #085C5C 0%, #E8543A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .wavy-underline {
