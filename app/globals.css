@@ -5,18 +5,16 @@
   --font-poppins: "Poppins", sans-serif;
 
   --color-melao-cream: #FFF5EB;
-  --color-melao-green: #2E3D36;
+  --color-melao-green: #1A2620; /* Darker, more sophisticated green */
   --color-melao-coral: #FF5A4F;
   --color-melao-yellow: #FFC80B;
   --color-melao-teal: #20BCB7;
   --color-melao-pink: #FF3A9E;
+  --color-melao-dark: #0F1412; /* Deep nocturnal black-green */
   
-  /* Legacy brand colors for compatibility if needed */
-  --color-brand-cream: #FFF5EB;
-  --color-brand-teal: #2E3D36;
-  --color-brand-coral: #FF5A4F;
-  --color-brand-yellow: #FFC80B;
-  --color-brand-dark: #2E3D36;
+  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(255, 245, 235, 0.8);
+  --glass-border: rgba(46, 61, 54, 0.1);
 }
 
 @layer base {
@@ -48,13 +46,25 @@
   }
 
   .melao-card {
-    @apply bg-white rounded-[2rem] p-8 shadow-xl transition-all duration-500 hover:translate-y-[-10px];
+    @apply bg-white rounded-[3rem] p-10 shadow-[var(--shadow-premium)] transition-all duration-700 hover:translate-y-[-12px] hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.4)] border border-melao-green/5;
+  }
+
+  .glass-panel {
+    @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-melao-coral via-melao-yellow to-melao-teal;
   }
 
   .onda-bg {
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' stroke='%23FF5A4F' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-position: center;
+  }
+
+  .leaf-floating {
+    @apply animate-float pointer-events-none opacity-10;
   }
 }
 
@@ -64,8 +74,26 @@
   100% { transform: translateX(-50%); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+}
+
 .animate-wave {
   animation: wave 20s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
 }
 
 /* Monument fallback */

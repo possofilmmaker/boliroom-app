@@ -28,12 +28,15 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-10 animate-in fade-in slide-in-from-left-8 duration-1000">
             <div className="space-y-4">
-               <h1 className="text-7xl md:text-[10rem] font-black leading-[0.8] tracking-tighter font-monument">
-                 <span className="text-melao-coral block">SE JUEGA</span>
-                 <span className="text-melao-yellow block">SE BRINDA</span>
-                 <span className="text-melao-teal block">SE BAILA</span>
-               </h1>
-               <Onda className="w-24 md:w-32" />
+                <h1 className="text-7xl md:text-[11rem] font-black leading-[0.8] tracking-tighter font-monument">
+                  <span className="text-melao-coral block">SE JUEGA</span>
+                  <span className="text-melao-yellow block">SE BRINDA</span>
+                  <span className="text-melao-teal block">SE BAILA</span>
+                </h1>
+                <div className="flex items-center gap-4">
+                  <Onda className="w-24 md:w-32" />
+                  <span className="text-xs font-black tracking-[0.5em] text-melao-green/40 uppercase">VIVE EL MELAO</span>
+                </div>
             </div>
             
             <p className="text-xl md:text-2xl font-medium text-melao-green/70 max-w-lg leading-snug">
@@ -47,23 +50,25 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000">
-            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/5] md:aspect-square">
+          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 group">
+            <div className="relative rounded-[4rem] overflow-hidden shadow-2xl aspect-[4/5] md:aspect-square border-[12px] border-white">
               <img 
                 src="/images/salon.jpg" 
                 alt="Melao Social Club" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-melao-green/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-melao-green/60 via-transparent to-transparent"></div>
               
               {/* Floating Badge */}
-              <div className="absolute top-8 right-8 bg-melao-yellow text-melao-green p-6 rounded-[2rem] shadow-xl rotate-12 font-black text-center">
-                <span className="text-xs block uppercase tracking-widest opacity-60">Ubicación</span>
-                <span className="text-xl">LA 15 <br/> BOGOTÁ</span>
+              <div className="absolute top-10 right-10 bg-melao-yellow text-melao-green p-8 rounded-[2.5rem] shadow-2xl rotate-12 font-black text-center animate-pulse-soft">
+                <span className="text-[10px] block uppercase tracking-widest opacity-60 mb-1">Bogotá</span>
+                <span className="text-2xl">LA 15</span>
               </div>
             </div>
             
-            {/* Decorative Palm Icons or similar could go here */}
+            {/* Decorative Elements */}
+            <img src="/images/palm_leaf.svg" alt="" className="absolute -bottom-10 -right-10 w-48 h-48 leaf-floating opacity-20 -rotate-12" />
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-melao-coral/10 rounded-full blur-3xl"></div>
           </div>
         </div>
       </section>

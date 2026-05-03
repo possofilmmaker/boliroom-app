@@ -32,7 +32,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-melao-cream/80 backdrop-blur-md border-b border-melao-green/5 h-24">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-panel h-24">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Navigation - Left (Desktop) */}
         <nav className="hidden md:flex items-center gap-8">
