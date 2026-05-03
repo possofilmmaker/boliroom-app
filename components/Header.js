@@ -2,80 +2,87 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, CalendarPlus, MapPin, Beer, Sparkles, Zap } from "lucide-react";
+import { Home, CalendarPlus, Beer, Sparkles } from "lucide-react";
+
+const Logo = () => (
+  <div className="flex flex-col items-center">
+    {/* La Onda */}
+    <svg width="60" height="12" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1">
+      <path d="M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6" stroke="#FF5A4F" strokeWidth="4" strokeLinecap="round"/>
+    </svg>
+    <span className="text-3xl font-black tracking-tighter text-melao-green leading-none font-monument">MELAO</span>
+    <div className="flex items-center gap-2 mt-1">
+      <div className="h-[1px] w-4 bg-melao-yellow"></div>
+      <span className="text-[8px] font-black text-melao-green tracking-[0.3em] uppercase">Social Club</span>
+      <div className="h-[1px] w-4 bg-melao-yellow"></div>
+    </div>
+  </div>
+);
 
 export default function Header() {
   const pathname = usePathname();
 
-  // No mostrar en el panel de administración
   if (pathname.startsWith("/admin")) return null;
 
   const navItems = [
     { name: "Inicio", path: "/", icon: Home },
-    { name: "Reservar", path: "/reserva", icon: CalendarPlus },
     { name: "Eventos", path: "/eventos", icon: Sparkles },
     { name: "Menú", path: "/menu", icon: Beer },
+    { name: "Juegos", path: "/juegos", icon: Home },
   ];
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl melao-glass border border-white/10 rounded-[2.5rem] h-24 shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden backdrop-blur-3xl">
-      <div className="px-10 h-full flex items-center justify-between relative">
-        {/* Decorative background pulse */}
-        <div className="absolute top-[-50%] left-[-10%] w-64 h-64 bg-brand-coral/10 blur-[80px] rounded-full"></div>
-        <div className="absolute bottom-[-50%] right-[-10%] w-64 h-64 bg-brand-teal/10 blur-[80px] rounded-full"></div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-melao-cream/80 backdrop-blur-md border-b border-melao-green/5 h-24">
+      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        {/* Navigation - Left (Desktop) */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.slice(0, 2).map((item) => (
+            <Link
+              key={item.name}
+              href={item.path}
+              className={`text-[11px] uppercase font-bold tracking-widest transition-colors ${
+                pathname === item.path ? "text-melao-coral" : "text-melao-green hover:text-melao-coral"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
 
-        {/* Logo — Melao Social Club */}
-        <Link href="/" className="flex items-center gap-2 group relative z-10">
-          <div className="flex flex-col items-center leading-none">
-            {/* Wavy squiggle — elemento signature */}
-            <svg width="50" height="10" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1 group-hover:scale-125 transition-transform duration-700">
-              <path d="M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6" stroke="#E8543A" strokeWidth="4" strokeLinecap="round"/>
-            </svg>
-            <div className="flex items-end gap-0">
-              <span className="text-2xl font-black tracking-tighter text-white leading-none italic">MELAO</span>
-            </div>
-            <div className="flex items-center gap-2 opacity-40">
-              <div className="h-[1px] w-3 bg-white"></div>
-              <span className="text-[7px] font-black text-white tracking-[0.4em] leading-none uppercase">Social Club</span>
-              <div className="h-[1px] w-3 bg-white"></div>
-            </div>
-          </div>
+        {/* Logo Central */}
+        <Link href="/" className="hover:scale-105 transition-transform duration-300">
+          <Logo />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-12 relative z-10">
-          {navItems.map((item) => {
-            const isActive = pathname === item.path;
-            const Icon = item.icon;
-            return (
+        {/* Navigation - Right (Desktop) */}
+        <div className="flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.slice(2).map((item) => (
               <Link
                 key={item.name}
                 href={item.path}
-                className={`flex items-center gap-2.5 text-[11px] uppercase font-black tracking-[0.2em] transition-all duration-500 ${
-                  isActive ? "text-brand-yellow" : "text-white/40 hover:text-white hover:scale-105"
+                className={`text-[11px] uppercase font-bold tracking-widest transition-colors ${
+                  pathname === item.path ? "text-melao-coral" : "text-melao-green hover:text-melao-coral"
                 }`}
               >
-                <Icon size={16} strokeWidth={isActive ? 3 : 2} className={isActive ? "text-brand-coral" : ""} />
                 {item.name}
               </Link>
-            );
-          })}
+            ))}
+          </nav>
+
           <Link 
             href="/reserva"
-            className="px-8 py-3.5 melao-button-primary rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
+            className="melao-button melao-button-primary py-3 px-6 text-[10px] hidden md:flex"
           >
-            <Zap size={14} />
-            Reservar
+            RESERVA TU MESA
           </Link>
-        </nav>
 
-        {/* Mobile Reservation CTA */}
-        <div className="md:hidden relative z-10">
+          {/* Mobile CTA */}
           <Link 
-            href="/reserva" 
-            className="text-[10px] font-black px-6 py-3.5 bg-brand-coral text-white rounded-2xl uppercase tracking-[0.2em] shadow-[0_15px_30px_rgba(232,84,58,0.3)] active:scale-90 transition-all block"
+            href="/reserva"
+            className="melao-button melao-button-primary py-3 px-6 text-[10px] md:hidden"
           >
-            BOOK NOW
+            RESERVAR
           </Link>
         </div>
       </div>

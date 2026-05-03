@@ -1,22 +1,19 @@
-import { Epilogue, Be_Vietnam_Pro } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import Header from "@/components/Header";
+import BottomNav from "@/components/BottomNav";
 
-const epilogue = Epilogue({ 
+const poppins = Poppins({ 
   subsets: ["latin"],
-  variable: '--font-epilogue',
-});
-
-const beVietnam = Be_Vietnam_Pro({ 
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: '--font-be-vietnam',
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: '--font-poppins',
 });
 
 export const metadata = {
-  title: "Melao Social Club | El lugar donde pasan cosas",
-  description: "Melao es carácter, Social Club es mundo. Disfruta de la mejor coctelería, bolirana pro y arcade en Bogotá. Carrera 15 # 67 - 27.",
+  title: "Melao Social Club | Se Juega, Se Brinda, Se Baila",
+  description: "El punto de encuentro donde la música, los juegos y los buenos tragos crean noches inolvidables en Bogotá. Carrera 15 # 67 - 27.",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
@@ -25,15 +22,19 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#042D2D",
+  themeColor: "#FF5A4F",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${epilogue.variable} ${beVietnam.variable}`}>
-      <body className="font-sans bg-[#042D2D] text-white min-h-screen selection:bg-brand-coral selection:text-white antialiased">
+    <html lang="es" className={`${poppins.variable}`}>
+      <body className="font-sans bg-melao-cream text-melao-green min-h-screen selection:bg-melao-coral selection:text-white antialiased">
         <ClientWrapper>
-          {children}
+          <Header />
+          <main>
+            {children}
+          </main>
+          <BottomNav />
         </ClientWrapper>
         <WhatsAppFab />
       </body>

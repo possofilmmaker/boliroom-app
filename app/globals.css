@@ -1,172 +1,84 @@
 @import "tailwindcss";
 
 @theme {
-  /* Melao Social Club — Nueva Paleta de Marca */
-  --color-brand-coral: #E8543A;      /* Coral vibrante — CTA principal */
-  --color-brand-teal: #085C5C;       /* Teal profundo — color primario */
-  --color-brand-yellow: #F5B942;     /* Amarillo cálido — acentos */
-  --color-brand-green: #1A7A4A;      /* Verde tropical — acento secundario */
-  --color-brand-mint: #25a18e;       /* Mint — tags/badges */
-  --color-brand-cream: #FCF8F0;      /* Crema suave — fondo base */
-  --color-brand-dark: #1C1C1C;       /* Negro casi puro — texto/bordes */
+  --font-monument: "Monument Extended", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-melao-cream: #FFF5EB;
+  --color-melao-green: #2E3D36;
+  --color-melao-coral: #FF5A4F;
+  --color-melao-yellow: #FFC80B;
+  --color-melao-teal: #20BCB7;
+  --color-melao-pink: #FF3A9E;
   
-  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
-  --font-display: var(--font-epilogue), system-ui, sans-serif;
+  /* Legacy brand colors for compatibility if needed */
+  --color-brand-cream: #FFF5EB;
+  --color-brand-teal: #2E3D36;
+  --color-brand-coral: #FF5A4F;
+  --color-brand-yellow: #FFC80B;
+  --color-brand-dark: #2E3D36;
 }
 
 @layer base {
-  :root {
-    --background: #FCF8F0;
-    --foreground: #1C1C1C;
-    --brand-teal: #085C5C;
-    --brand-coral: #E8543A;
-    --brand-yellow: #F5B942;
-  }
-
-  .dark {
-    --background: #042D2D; /* Deep Nocturnal Teal */
-    --foreground: #FCF8F0;
-  }
-
   body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
+    @apply bg-melao-cream text-melao-green font-['Poppins'];
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    @apply font-bold tracking-tight uppercase;
   }
 }
 
-@layer utilities {
-  .melao-glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+@layer components {
+  .melao-title {
+    @apply font-black tracking-tighter leading-none uppercase;
   }
 
-  .melao-glass-dark {
-    background: rgba(8, 92, 92, 0.6);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-  }
-
-  .melao-nocturnal {
-    background: radial-gradient(circle at top right, #0A4D4D, #042D2D);
-    color: #FCF8F0;
-  }
-
-  .melao-card {
-    background: white;
-    border: 2px solid #1C1C1C;
-    box-shadow: 6px 6px 0px #1C1C1C;
-    border-radius: 1.5rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .melao-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0px #1C1C1C;
+  .melao-button {
+    @apply px-8 py-4 rounded-full font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2;
   }
 
   .melao-button-primary {
-    background-color: #E8543A;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 20px -5px rgba(232, 84, 58, 0.4);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-family: var(--font-display);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    border-radius: 9999px;
-  }
-
-  .melao-button-primary:hover {
-    background-color: #f16b54;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px -5px rgba(232, 84, 58, 0.6);
+    @apply bg-melao-coral text-white hover:scale-105 active:scale-95 shadow-lg;
   }
 
   .melao-button-secondary {
-    background-color: #F5B942;
-    color: #1C1C1C;
-    border: 2px solid #1C1C1C;
-    box-shadow: 4px 4px 0px #1C1C1C;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-family: var(--font-display);
-    transition: all 0.2s ease;
+    @apply bg-melao-yellow text-melao-green hover:scale-105 active:scale-95 shadow-lg;
   }
 
-  .tropical-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66 3c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-46-43c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm20-46c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM32 6c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm18 40c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm16 48c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM82 94c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 14c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM10 52c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm76-10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM44 70c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm40-2c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-32-18c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-18-30c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm54 10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23085c5c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  .melao-card {
+    @apply bg-white rounded-[2rem] p-8 shadow-xl transition-all duration-500 hover:translate-y-[-10px];
   }
 
-  .text-gradient-melao {
-    background: linear-gradient(135deg, #085C5C 0%, #E8543A 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .wavy-underline {
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: #E8543A;
-    text-underline-offset: 8px;
-  }
-
-  /* Squiggle decorativo — signature de Melao Social Club */
-  .melao-squiggle {
-    display: inline-block;
-    width: 60px;
-    height: 12px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12' fill='none'%3E%3Cpath d='M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6' stroke='%23085C5C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .melao-squiggle-coral {
-    display: inline-block;
-    width: 60px;
-    height: 12px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12' fill='none'%3E%3Cpath d='M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6' stroke='%23E8543A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .onda-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10' stroke='%23FF5A4F' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
   }
 }
 
-/* Custom Scrollbar — Melao Social Club */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #FCF8F0;
-}
-::-webkit-scrollbar-thumb {
-  background: #085C5C;
-  border-radius: 10px;
-  border: 2px solid #FCF8F0;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #E8543A;
+/* Animations */
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
+.animate-wave {
+  animation: wave 20s linear infinite;
+}
+
+/* Monument fallback */
+@font-face {
+  font-family: 'Monument Extended';
+  src: url('https://fonts.cdnfonts.com/s/19595/MonumentExtended-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Monument Extended';
+  src: url('https://fonts.cdnfonts.com/s/19595/MonumentExtended-Ultrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
