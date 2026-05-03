@@ -1,18 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-purple: #F26A59;
-  --color-brand-cyan: #74D0CB;
-  --color-brand-dark: #1A505B;
-  --color-brand-darker: #123C45;
+  /* Melao Social Club — Nueva Paleta de Marca */
+  --color-brand-coral: #E8543A;      /* Coral vibrante — CTA principal */
+  --color-brand-teal: #085C5C;       /* Teal profundo — color primario */
+  --color-brand-yellow: #F5B942;     /* Amarillo cálido — acentos */
+  --color-brand-green: #1A7A4A;      /* Verde tropical — acento secundario */
+  --color-brand-mint: #25a18e;       /* Mint — tags/badges */
+  --color-brand-cream: #FCF8F0;      /* Crema suave — fondo base */
+  --color-brand-dark: #1C1C1C;       /* Negro casi puro — texto/bordes */
   
-  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
 }
 
 @layer base {
   :root {
-    --background: #123C45;
-    --foreground: #E3D4B6;
+    --background: #FCF8F0;
+    --foreground: #1C1C1C;
   }
 
   body {
@@ -25,37 +30,81 @@
 }
 
 @layer utilities {
-  .neon-text-purple {
-    text-shadow: 0 0 10px rgba(242, 106, 89, 0.7), 0 0 20px rgba(242, 106, 89, 0.5);
+  .melao-card {
+    background: white;
+    border: 2px solid #1C1C1C;
+    box-shadow: 6px 6px 0px #1C1C1C;
+    border-radius: 1.5rem;
+    transition: all 0.2s ease;
   }
   
-  .neon-text-cyan {
-    text-shadow: 0 0 10px rgba(116, 208, 203, 0.7), 0 0 20px rgba(116, 208, 203, 0.5);
+  .melao-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #1C1C1C;
   }
 
-  .neon-box-purple {
-    box-shadow: 0 0 15px rgba(242, 106, 89, 0.3), inset 0 0 10px rgba(242, 106, 89, 0.1);
-    border: 1px solid rgba(242, 106, 89, 0.4);
-  }
-  
-  .neon-button {
-    background: linear-gradient(135deg, #F26A59, #74D0CB);
-    box-shadow: 0 10px 20px -10px rgba(242, 106, 89, 0.5);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    color: #123C45;
-  }
-  
-  .neon-button:hover {
-    box-shadow: 0 15px 30px -5px rgba(116, 208, 203, 0.6);
-    transform: translateY(-3px) scale(1.02);
+  .melao-button-primary {
+    background-color: #E8543A;
+    color: white;
+    border: 2px solid #1C1C1C;
+    box-shadow: 4px 4px 0px #1C1C1C;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
   }
 
-  .glass-panel {
-    background: rgba(26, 80, 91, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  .melao-button-primary:hover {
+    background-color: #D44530;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #1C1C1C;
+  }
+
+  .melao-button-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #1C1C1C;
+  }
+
+  .melao-button-secondary {
+    background-color: #FCF8F0;
+    color: #1C1C1C;
+    border: 2px solid #1C1C1C;
+    box-shadow: 4px 4px 0px #1C1C1C;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
+  }
+
+  .melao-button-secondary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #1C1C1C;
+  }
+
+  .wavy-underline {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #E8543A;
+    text-underline-offset: 8px;
+  }
+
+  /* Squiggle decorativo — signature de Melao Social Club */
+  .melao-squiggle {
+    display: inline-block;
+    width: 60px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12' fill='none'%3E%3Cpath d='M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6' stroke='%23085C5C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .melao-squiggle-coral {
+    display: inline-block;
+    width: 60px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12' fill='none'%3E%3Cpath d='M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6' stroke='%23E8543A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   .hide-scrollbar::-webkit-scrollbar {
@@ -65,23 +114,21 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
-  .perspective-1000 {
-    perspective: 1000px;
-  }
 }
 
-/* Custom Scrollbar for better UI */
+/* Custom Scrollbar — Melao Social Club */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #123C45;
+  background: #FCF8F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1A505B;
+  background: #085C5C;
   border-radius: 10px;
+  border: 2px solid #FCF8F0;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #F26A59;
+  background: #E8543A;
 }
+

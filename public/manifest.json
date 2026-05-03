@@ -1,11 +1,11 @@
 {
-  "name": "Melao Social Crew Bogotá",
-  "short_name": "Melao",
-  "description": "App oficial de Melao para reservas y menú digital.",
+  "name": "Melao Social Club | Bogotá",
+  "short_name": "Melao SC",
+  "description": "App oficial de Melao Social Club para reservas y menú digital.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#020617",
-  "theme_color": "#a855f7",
+  "background_color": "#FCF8F0",
+  "theme_color": "#085C5C",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",

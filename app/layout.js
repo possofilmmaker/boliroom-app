@@ -1,13 +1,13 @@
-import { Space_Grotesk } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import WhatsAppFab from "@/components/WhatsAppFab";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Melao Social Crew Bogotá | El mejor ambiente y coctelería",
-  description: "Reserva tu mesa en Melao Social Crew Bogotá. Disfruta de la mejor coctelería, juegos y el ambiente más social de la ciudad. Carrera 15 # 67 - 27.",
+  title: "Melao Social Club | El lugar donde pasan cosas",
+  description: "Melao es carácter, Social Club es mundo. Disfruta de la mejor coctelería, bolirana pro y arcade en Bogotá. Carrera 15 # 67 - 27.",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
@@ -16,13 +16,13 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0f172a",
+  themeColor: "#fcf8f2",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className="dark">
-      <body className={`${spaceGrotesk.className} bg-brand-darker text-slate-50 min-h-screen`}>
+    <html lang="es">
+      <body className={`${outfit.className} bg-brand-cream text-brand-dark min-h-screen`}>
         <ClientWrapper>
           {children}
         </ClientWrapper>
@@ -31,3 +31,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

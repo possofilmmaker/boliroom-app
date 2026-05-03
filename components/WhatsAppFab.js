@@ -3,8 +3,8 @@
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppFab() {
-  const phoneNumber = "573000000000"; // Reemplazar con el número real de Melao Social Crew
-  const message = "¡Hola Melao Social Crew! 🍹 Quisiera consultar sobre un evento empresarial o tengo una necesidad especial para mi reserva.";
+  const phoneNumber = "573000000000"; // Reemplazar con el número real de Melao Social Club
+  const message = "¡Hola Melao Social Club! 🍹 Quisiera consultar sobre un evento empresarial o tengo una necesidad especial para mi reserva.";
 
   return (
     <a

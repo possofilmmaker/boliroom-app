@@ -53,30 +53,30 @@ function ReservaForm() {
   const ambientes = [
     {
       id: "vip_karaoke",
-      titulo: "Salones VIP Karaoke",
+      titulo: "VIP Suites & Gaming",
       piso: "Piso 2",
-      descripcion: "Salones privados con TV, Karaoke y Bolirana propia. Ideal para parches que quieren privacidad.",
-      features: ["TV Karaoke", "Bolirana Privada", "Juegos de Mesa"],
+      descripcion: "Salones privados con TV Karaoke y Bolirana propia. Ideal para parches que quieren exclusividad.",
+      features: ["Karaoke Pro", "Bolirana Privada", "VIP Lounge"],
       capacidadMax: 18,
-      imagen: "/vip_room.png"
+      imagen: "/images/salon.jpg"
     },
     {
       id: "terraza",
-      titulo: "Terraza Boli-Roof",
+      titulo: "Melao-Roof Terrace",
       piso: "Piso 3",
-      descripcion: "Ambiente social al aire libre con vista a la ciudad. 3 boliranas y servicio de restaurante/bar.",
-      features: ["Al Aire Libre", "3 Boliranas", "Vista 360°"],
-      capacidadMax: 10,
-      imagen: "/terrace.png"
+      descripcion: "Nuestra terraza al aire libre. 3 boliranas pro y el mejor ambiente social de Chapinero.",
+      features: ["Al Aire Libre", "Bolirana Pro", "City View"],
+      capacidadMax: 12,
+      imagen: "/images/terraza.jpg"
     },
     {
       id: "empresarial",
-      titulo: "Eventos Empresariales",
-      piso: "Melao Corporativo",
-      descripcion: "¿Planeas un evento de empresa? Ofrecemos planes a medida, catering y privacidad total para tu equipo.",
-      features: ["Planes a Medida", "Privacidad Total", "Catering Premium"],
+      titulo: "Eventos Corporativos",
+      piso: "Melao Corporate",
+      descripcion: "¿Evento de empresa? Ofrecemos planes a medida, catering premium y privacidad total.",
+      features: ["Catering", "Privacidad", "Eventos Pro"],
       isExternal: true,
-      whatsappMsg: "¡Hola Melao! 🏢 Estoy interesado en una reserva empresarial o evento corporativo.",
+      whatsappMsg: "¡Hola Melao! 🏢 Estoy interesado en una reserva empresarial.",
       imagen: "/images/mesavip.jpg" 
     }
   ];
@@ -87,13 +87,6 @@ function ReservaForm() {
       setStep(stepParam);
     }
   }, [stepParam, step]);
-
-  // Protección Ticket Vacío
-  useEffect(() => {
-    if (step === 4 && (!formData.nombre || !formData.fecha)) {
-      navigateToStep(1);
-    }
-  }, [step, formData.nombre, formData.fecha]);
 
   useEffect(() => {
     async function consultarOcupacion() {
@@ -148,9 +141,6 @@ function ReservaForm() {
       await addDoc(collection(db, "reservas"), {
         ...formData,
         estado: "confirmada",
-        label_reserva: formData.ambiente === 'vip_karaoke' 
-          ? (formData.personas > 8 ? "VIP UNIFICADO (A+B)" : "SALÓN VIP") 
-          : "TERRAZA",
         createdAt: new Date().toISOString()
       });
 
@@ -163,7 +153,8 @@ function ReservaForm() {
       } catch (calError) {
         console.error("Calendar Error:", calError);
       }
-      const message = `¡Hola ${formData.nombre}! 🍹 Gracias por elegir Melao Social Crew para tu parche. 🎳\n\nConfirmamos tu solicitud de reserva:\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - TERRAZA'}\n\nPara finalizar tu reserva y asegurar tu lugar, por favor realiza el abono de $100.000 COP (consumibles) a nuestra cuenta oficial:\n\n🏦 BANCOLOMBIA (Ahorros)\n🔢 Cuenta: 123-456789-01\n🆔 Nit: 900.000.000-1\n\nUna vez realizado, envíanos el comprobante por este medio. ¡Nos vemos pronto! 🔥`;
+      
+      const message = `¡Hola ${formData.nombre}! 🍹 Gracias por elegir Melao Social Club para tu parche. 🎳\n\nConfirmamos tu solicitud de reserva:\n📅 Fecha: ${formData.fecha}\n⏰ Hora: ${formData.hora}\n👥 Pax: ${formData.personas}\n📍 Ambiente: ${formData.ambiente === 'vip_karaoke' ? 'VIP Suites & Gaming' : 'Melao-Roof Terrace'}\n\nPara asegurar tu mesa, por favor realiza el abono de $100.000 COP (consumibles):\n\n🏦 BANCOLOMBIA (Ahorros)\n🔢 Cuenta: 123-456789-01\n🆔 Nit: 900.000.000-1\n\nEnvíanos el comprobante por este medio. ¡Nos vemos pronto! 🔥`;
       
       const whatsappUrl = `https://wa.me/573138139634?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
@@ -178,16 +169,16 @@ function ReservaForm() {
   };
 
   return (
-    <main className="px-6 py-24 max-w-2xl mx-auto min-h-screen">
+    <main className="px-6 py-24 max-w-2xl mx-auto min-h-screen bg-brand-cream">
       {/* Progress */}
       {step < 4 && (
-        <div className="flex justify-between items-center mb-10 px-4">
+        <div className="flex justify-between items-center mb-16 px-4">
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center flex-1 last:flex-none">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${step >= s ? 'bg-brand-cyan text-brand-darker' : 'bg-slate-800 text-slate-600'}`}>
+              <div className={`w-10 h-10 border-2 border-brand-dark flex items-center justify-center text-xs font-black transition-all ${step >= s ? 'bg-brand-coral text-white' : 'bg-white text-brand-dark/30'}`}>
                 {s}
               </div>
-              {s < 3 && <div className={`flex-1 h-px mx-2 ${step > s ? 'bg-brand-cyan' : 'bg-slate-800'}`}></div>}
+              {s < 3 && <div className={`flex-1 h-1 mx-2 ${step > s ? 'bg-brand-dark' : 'bg-brand-dark/10'}`}></div>}
             </div>
           ))}
         </div>
@@ -195,12 +186,12 @@ function ReservaForm() {
 
       {/* STEP 1 */}
       {step === 1 && (
-        <div className="space-y-6 animate-in fade-in duration-500">
-           <div className="text-center mb-8">
-              <h2 className="text-3xl font-black italic text-white tracking-tighter uppercase mb-2">Elige tu <span className="text-brand-cyan">Ambiente</span></h2>
-              <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">¿Dónde quieres parchar hoy?</p>
+        <div className="space-y-8 animate-in fade-in duration-500">
+           <div className="text-center mb-12">
+              <h2 className="text-4xl font-black text-brand-dark uppercase tracking-tighter mb-2">ELIGE TU <span className="text-brand-coral">AMBIENTE</span></h2>
+              <p className="text-brand-teal font-black uppercase tracking-widest text-[10px]">¿Donde empieza el plan hoy?</p>
            </div>
-           <div className="grid grid-cols-1 gap-6">
+           <div className="grid grid-cols-1 gap-8">
               {ambientes.map((amb) => (
                 <button
                   key={amb.id}
@@ -212,22 +203,22 @@ function ReservaForm() {
                       navigateToStep(2);
                     }
                   }}
-                  className="group relative h-72 rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-brand-purple/50 transition-all duration-500 text-left"
+                  className="melao-card group relative h-80 overflow-hidden"
                 >
-                  <img src={amb.imagen} alt={amb.titulo} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <span className="bg-brand-purple text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">{amb.piso}</span>
-                    <h3 className="text-2xl font-black italic text-white uppercase tracking-tighter mb-2">{amb.titulo}</h3>
-                    <p className="text-slate-300 text-xs mb-4 line-clamp-2 leading-relaxed">{amb.descripcion}</p>
+                  <img src={amb.imagen} alt={amb.titulo} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                  <div className="absolute bottom-6 left-6 right-6 text-left">
+                    <span className="bg-brand-yellow text-brand-dark text-[9px] font-black px-3 py-1 border-2 border-brand-dark uppercase tracking-widest mb-3 inline-block">{amb.piso}</span>
+                    <h3 className="text-3xl font-black text-white uppercase tracking-tighter mb-2">{amb.titulo}</h3>
+                    <p className="text-brand-cream/80 text-xs mb-4 line-clamp-2 font-medium leading-relaxed">{amb.descripcion}</p>
                     <div className="flex flex-wrap gap-2">
                        {amb.features.map(f => (
-                         <span key={f} className="bg-white/10 backdrop-blur-md text-[8px] text-white font-bold px-2 py-1 rounded-md uppercase border border-white/5">{f}</span>
+                         <span key={f} className="bg-white/10 backdrop-blur-md text-[8px] text-white font-bold px-3 py-1 rounded-full uppercase border border-white/20">{f}</span>
                        ))}
                     </div>
                   </div>
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ChevronRight className="text-white" size={20} />
+                  <div className="absolute top-6 right-6 w-12 h-12 bg-white border-2 border-brand-dark flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                    <ChevronRight className="text-brand-dark" size={24} />
                   </div>
                 </button>
               ))}
@@ -237,133 +228,199 @@ function ReservaForm() {
 
       {/* STEP 2 */}
       {step === 2 && (
-        <div className="space-y-8 animate-in slide-in-from-right-4 duration-500">
-          <button type="button" onClick={() => navigateToStep(1)} className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest mb-4">
+        <div className="space-y-12 animate-in slide-in-from-right-4 duration-500">
+          <button type="button" onClick={() => navigateToStep(1)} className="flex items-center gap-2 text-brand-dark/50 hover:text-brand-dark transition-colors text-xs font-black uppercase tracking-widest">
             <ArrowLeft size={16} /> Cambiar Ambiente
           </button>
-          <section>
-             <h3 className="text-lg font-black text-white italic uppercase tracking-tighter mb-4 flex items-center gap-2"><Users className="text-brand-purple" size={18} /> ¿Cuántas personas?</h3>
-             <div className="glass-panel p-6 rounded-3xl flex items-center justify-between border border-white/5">
-                <button type="button" onClick={() => handlePaxChange(-1)} className="w-12 h-12 rounded-xl bg-slate-800 text-white font-black">-</button>
-                <div className="text-center">
-                  <span className="text-4xl font-black text-white">{formData.personas}</span>
-                  <p className="text-[10px] text-slate-500 uppercase font-bold mt-1">Asistentes</p>
-                </div>
-                <button type="button" onClick={() => handlePaxChange(1)} className="w-12 h-12 rounded-xl bg-brand-cyan text-brand-darker font-black">+</button>
-             </div>
-          </section>
-          <section>
-             <h3 className="text-lg font-black text-white italic uppercase tracking-tighter mb-4 flex items-center gap-2"><CalendarIcon className="text-brand-purple" size={18} /> Elige la Fecha</h3>
-             <input type="date" required min={new Date().toISOString().split("T")[0]} value={formData.fecha} onChange={handleChange} name="fecha" className="w-full glass-panel p-5 rounded-2xl text-white border border-white/5 focus:border-brand-cyan/50 focus:outline-none transition-all" />
-          </section>
-          {formData.fecha && (
-            <section className="animate-in fade-in duration-500">
-               <h3 className="text-lg font-black text-white italic uppercase tracking-tighter mb-4 flex items-center gap-2"><Clock className="text-brand-purple" size={18} /> Turno (2 Horas)</h3>
-               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {horasDisponibles.map((h) => (
-                    <button
-                      key={h}
-                      type="button"
-                      disabled={(ocupacion[h] || 0) >= (formData.ambiente === 'vip_karaoke' ? 2 : 8)}
-                      onClick={() => setFormData(p => ({...p, hora: h}))}
-                      className={`py-4 rounded-2xl text-sm font-black transition-all border ${formData.hora === h ? 'bg-brand-cyan text-brand-darker' : 'bg-slate-800/40 text-slate-300'}`}
-                    >
-                       {h}
-                    </button>
-                  ))}
+          
+          <div className="space-y-12">
+            <section>
+               <h3 className="text-xl font-black text-brand-dark uppercase tracking-tighter mb-6 flex items-center gap-3">
+                 <Users className="text-brand-coral" size={24} /> ¿Cuántas personas?
+               </h3>
+               <div className="melao-card p-8 flex items-center justify-between">
+                  <button type="button" onClick={() => handlePaxChange(-1)} className="w-14 h-14 border-2 border-brand-dark bg-white font-black text-xl hover:bg-brand-cream active:bg-brand-yellow transition-colors">-</button>
+                  <div className="text-center">
+                    <span className="text-5xl font-black text-brand-dark">{formData.personas}</span>
+                    <p className="text-[10px] text-brand-teal uppercase font-black tracking-widest mt-1">Pax</p>
+                  </div>
+                  <button type="button" onClick={() => handlePaxChange(1)} className="w-14 h-14 border-2 border-brand-dark bg-brand-yellow font-black text-xl hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">+</button>
                </div>
             </section>
-          )}
-          <button type="button" disabled={!formData.fecha || !formData.hora} onClick={() => navigateToStep(3)} className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest shadow-xl shadow-brand-purple/20">Siguiente Paso</button>
+
+            <section>
+               <h3 className="text-xl font-black text-brand-dark uppercase tracking-tighter mb-6 flex items-center gap-3">
+                 <CalendarIcon className="text-brand-coral" size={24} /> ¿Cuándo vienen?
+               </h3>
+               <input 
+                 type="date" 
+                 required 
+                 min={new Date().toISOString().split("T")[0]} 
+                 value={formData.fecha} 
+                 onChange={handleChange} 
+                 name="fecha" 
+                 className="w-full melao-card p-6 text-brand-dark font-black uppercase tracking-widest focus:outline-none" 
+               />
+            </section>
+
+            {formData.fecha && (
+              <section className="animate-in fade-in duration-500">
+                 <h3 className="text-xl font-black text-brand-dark uppercase tracking-tighter mb-6 flex items-center gap-3">
+                   <Clock className="text-brand-coral" size={24} /> Turno (2 Horas)
+                 </h3>
+                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {horasDisponibles.map((h) => (
+                      <button
+                        key={h}
+                        type="button"
+                        disabled={(ocupacion[h] || 0) >= (formData.ambiente === 'vip_karaoke' ? 2 : 8)}
+                        onClick={() => setFormData(p => ({...p, hora: h}))}
+                        className={`p-5 font-black uppercase tracking-widest transition-all border-2 border-brand-dark ${formData.hora === h ? 'bg-brand-coral text-white shadow-[4px_4px_0px_#1a202c] translate-x-[-2px] translate-y-[-2px]' : 'bg-white text-brand-dark hover:bg-brand-cream'}`}
+                      >
+                         {h}
+                      </button>
+                    ))}
+                 </div>
+              </section>
+            )}
+          </div>
+
+          <button 
+            type="button" 
+            disabled={!formData.fecha || !formData.hora} 
+            onClick={() => navigateToStep(3)} 
+            className="w-full melao-button-primary py-6 rounded-2xl text-lg disabled:opacity-30 disabled:pointer-events-none"
+          >
+            Siguiente Paso
+          </button>
         </div>
       )}
 
       {/* STEP 3 */}
       {step === 3 && (
-        <div className="space-y-8 animate-in slide-in-from-right-4 duration-500">
-          <button type="button" onClick={() => navigateToStep(2)} className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest mb-4"><ArrowLeft size={16} /> Volver</button>
-          <div className="text-center mb-6">
-             <h2 className="text-3xl font-black italic text-white uppercase tracking-tighter">¿A nombre de quién?</h2>
+        <div className="space-y-12 animate-in slide-in-from-right-4 duration-500">
+          <button type="button" onClick={() => navigateToStep(2)} className="flex items-center gap-2 text-brand-dark/50 hover:text-brand-dark transition-colors text-xs font-black uppercase tracking-widest"><ArrowLeft size={16} /> Volver</button>
+          
+          <div className="text-center mb-12">
+             <h2 className="text-4xl font-black text-brand-dark uppercase tracking-tighter">¿A NOMBRE DE <span className="text-brand-coral">QUIÉN?</span></h2>
+             <p className="text-brand-teal font-black uppercase tracking-widest text-[10px] mt-2">Necesitamos tus datos para el ticket</p>
           </div>
-          <div className="space-y-4">
+          
+          <div className="space-y-6">
              <div className="relative">
-                <User className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                <input type="text" name="nombre" required placeholder="Nombre para la reserva" value={formData.nombre} onChange={handleChange} className="w-full glass-panel pl-14 pr-5 py-5 rounded-2xl text-white border focus:border-brand-cyan/50 outline-none" />
+                <User className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-dark/30" size={24} />
+                <input 
+                  type="text" 
+                  name="nombre" 
+                  required 
+                  placeholder="TU NOMBRE COMPLETO" 
+                  value={formData.nombre} 
+                  onChange={handleChange} 
+                  className="w-full melao-card pl-16 pr-6 py-6 text-brand-dark font-black uppercase tracking-widest outline-none" 
+                />
              </div>
              <div className="relative">
-                <Phone className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                <input type="tel" name="telefono" required placeholder="WhatsApp de contacto" value={formData.telefono} onChange={handleChange} className="w-full glass-panel pl-14 pr-5 py-5 rounded-2xl text-white border focus:border-brand-cyan/50 outline-none" />
+                <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-dark/30" size={24} />
+                <input 
+                  type="tel" 
+                  name="telefono" 
+                  required 
+                  placeholder="WHATSAPP DE CONTACTO" 
+                  value={formData.telefono} 
+                  onChange={handleChange} 
+                  className="w-full melao-card pl-16 pr-6 py-6 text-brand-dark font-black uppercase tracking-widest outline-none" 
+                />
              </div>
           </div>
-          <button type="button" disabled={loading} onClick={handleSubmit} className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest shadow-2xl shadow-brand-purple/40">
-            {loading ? "Procesando..." : "Realizar Reserva 🔥"}
+          
+          <button 
+            type="button" 
+            disabled={loading} 
+            onClick={handleSubmit} 
+            className="w-full melao-button-primary py-6 rounded-2xl text-lg"
+          >
+            {loading ? "GENERANDO..." : "REALIZAR RESERVA 🔥"}
           </button>
         </div>
       )}
 
       {/* STEP 4 */}
       {step === 4 && (
-        <div className="animate-in zoom-in-95 duration-500 py-4 space-y-6">
-          <div className="bg-white text-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative">
-             <div className={`p-8 text-center text-white relative ${formData.ambiente === 'vip_karaoke' ? 'bg-brand-purple' : 'bg-brand-cyan'}`}>
-                <div className="relative z-10 flex flex-col items-center">
-                   <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4"><CheckCircle2 size={40} className="text-white" /></div>
-                   <h2 className="text-2xl font-black tracking-tighter uppercase italic">{formData.ambiente === 'vip_karaoke' ? 'PASS VIP' : 'PASS TERRAZA'}</h2>
-                   <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Melao Social Crew Bogotá • Pendiente de Abono</p>
+        <div className="animate-in zoom-in-95 duration-500 py-4 space-y-8">
+          <div className="bg-white border-4 border-brand-dark rounded-3xl overflow-hidden shadow-[12px_12px_0px_#1a202c] relative">
+             <div className={`p-10 text-center text-white border-b-4 border-brand-dark ${formData.ambiente === 'vip_karaoke' ? 'bg-brand-coral' : 'bg-brand-teal'}`}>
+                <div className="flex flex-col items-center">
+                   <div className="w-20 h-20 bg-white border-4 border-brand-dark flex items-center justify-center mb-6 rotate-[-3deg]">
+                     <CheckCircle2 size={48} className="text-brand-dark" />
+                   </div>
+                   <h2 className="text-4xl font-black tracking-tighter uppercase leading-none mb-2">RESREVA REGISTRADA</h2>
+                   <p className="text-white font-black text-[10px] uppercase tracking-[0.2em]">Melao Social Club • Bogotá</p>
                 </div>
              </div>
-             <div className="p-8 space-y-6">
-                <div className="grid grid-cols-2 gap-8">
-                   <div><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Invitado</p><p className="font-black text-sm uppercase">{formData.nombre}</p></div>
-                   <div className="text-right"><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Ambiente</p><p className="font-black text-sm uppercase">{formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - ROOF'}</p></div>
-                   <div><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Fecha & Hora</p><p className="font-black text-sm uppercase">{formData.fecha} • {formData.hora}</p></div>
-                   <div className="text-right"><p className="text-[9px] font-bold text-slate-400 uppercase mb-1">Invitados</p><p className="font-black text-sm uppercase">{formData.personas} Pax</p></div>
+             
+             <div className="p-10 space-y-10">
+                <div className="grid grid-cols-2 gap-10">
+                   <div>
+                     <p className="text-[10px] font-black text-brand-teal uppercase tracking-widest mb-2">Invitado</p>
+                     <p className="font-black text-lg text-brand-dark uppercase leading-none">{formData.nombre}</p>
+                   </div>
+                   <div className="text-right">
+                     <p className="text-[10px] font-black text-brand-teal uppercase tracking-widest mb-2">Ambiente</p>
+                     <p className="font-black text-lg text-brand-dark uppercase leading-none">{formData.ambiente === 'vip_karaoke' ? 'PISO 2 - VIP' : 'PISO 3 - ROOF'}</p>
+                   </div>
+                   <div>
+                     <p className="text-[10px] font-black text-brand-teal uppercase tracking-widest mb-2">Fecha & Hora</p>
+                     <p className="font-black text-lg text-brand-dark uppercase leading-none">{formData.fecha} • {formData.hora}</p>
+                   </div>
+                   <div className="text-right">
+                     <p className="text-[10px] font-black text-brand-teal uppercase tracking-widest mb-2">Pax</p>
+                     <p className="font-black text-lg text-brand-dark uppercase leading-none">{formData.personas} Personas</p>
+                   </div>
                 </div>
 
-                {/* Bancolombia Info Section */}
-                <div className="p-5 bg-slate-50 rounded-3xl border border-slate-100 space-y-3">
-                   <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brand-purple">
-                      <Sparkles size={14} /> Instrucciones de Abono
+                {/* Bancolombia Info */}
+                <div className="p-8 bg-brand-cream border-2 border-brand-dark border-dashed space-y-4">
+                   <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-brand-coral">
+                      <Sparkles size={16} /> Instrucciones de Abono
                    </div>
-                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-                     Para asegurar tu mesa, realiza el abono de <span className="font-black text-slate-900">$100.000 COP</span> (Ahorros Bancolombia):
+                   <p className="text-sm text-brand-dark/70 font-bold leading-relaxed">
+                     Para asegurar tu mesa, realiza el abono de <span className="text-brand-dark font-black">$100.000 COP</span>:
                    </p>
-                   <div className="bg-white p-3 rounded-xl border border-slate-200">
-                      <p className="text-xs font-black text-slate-900">CUENTA: 123-456789-01</p>
-                      <p className="text-[9px] text-slate-400 uppercase font-bold tracking-tighter">Melao Social Crew Bogotá • Nit: 900.000.000-1</p>
+                   <div className="bg-white p-5 border-2 border-brand-dark">
+                      <p className="text-lg font-black text-brand-dark">CUENTA: 123-456789-01</p>
+                      <p className="text-[10px] text-brand-teal uppercase font-black tracking-widest">Ahorros Bancolombia • Nit: 900.000.000-1</p>
                    </div>
                 </div>
 
-                <div className="pt-6 border-t border-dashed border-slate-200 flex flex-col items-center">
-                   <div className="w-24 h-24 grid grid-cols-6 grid-rows-6 gap-1 opacity-80 mb-4">
+                <div className="pt-10 border-t-2 border-brand-dark border-dashed flex flex-col items-center">
+                   <div className="w-32 h-32 grid grid-cols-6 grid-rows-6 gap-1.5 p-3 border-2 border-brand-dark bg-brand-cream">
                       {qrPattern.map((isBlack, i) => (
-                        <div key={i} className={`rounded-[2px] ${isBlack ? 'bg-slate-800' : 'bg-transparent'}`}></div>
+                        <div key={i} className={`${isBlack ? 'bg-brand-dark' : 'bg-transparent'}`}></div>
                       ))}
                    </div>
-                   <p className="text-[9px] font-mono text-slate-400 uppercase">#MELA-{ticketId}</p>
+                   <p className="text-[10px] font-black text-brand-dark/30 uppercase mt-4 tracking-widest">#MELA-{ticketId}</p>
                 </div>
              </div>
-             <div className="bg-slate-50 p-6 border-t border-slate-100 italic">
-                <p className="text-[9px] text-slate-400 font-bold text-center leading-relaxed">* Envía el comprobante por WhatsApp para finalizar.</p>
+             
+             <div className="bg-brand-yellow p-6 border-t-4 border-brand-dark text-center">
+                <p className="text-[10px] text-brand-dark font-black uppercase tracking-widest">Envía el comprobante por WhatsApp para confirmar</p>
              </div>
-          </div>          <div className="space-y-4">
-             <div className="p-4 bg-brand-purple/10 border border-brand-purple/20 rounded-2xl">
-                <p className="text-[10px] text-brand-purple font-black text-center uppercase tracking-widest">
-                   ¡Tu reserva ha sido registrada! 🎳
-                </p>
-                <p className="text-[9px] text-slate-400 text-center mt-1">
-                   En unos minutos te contactaremos por WhatsApp para enviarte tu ticket y confirmar el abono.
-                </p>
-             </div>
-             <button type="button" onClick={() => window.location.href = '/'} className="w-full neon-button py-5 rounded-2xl text-white font-black text-xs uppercase tracking-widest shadow-xl">
-                Volver al Inicio
+          </div>
+          
+          <div className="space-y-6 pt-4">
+             <button 
+               type="button" 
+               onClick={() => window.location.href = '/'} 
+               className="w-full melao-button-secondary py-6 rounded-2xl text-lg"
+             >
+                VOLVER AL INICIO
              </button>
           </div>
         </div>
       )}
 
-      <footer className="mt-12 text-center opacity-40">
-        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Melao Social Crew © 2026</p>
+      <footer className="mt-20 text-center opacity-30">
+        <p className="text-[10px] text-brand-dark font-black uppercase tracking-widest">Melao Social Club © 2026 • Bogotá</p>
       </footer>
 
       <ReservationPolicyModal isOpen={isPolicyModalOpen} onClose={() => setIsPolicyModalOpen(false)} />
@@ -373,8 +430,9 @@ function ReservaForm() {
 
 export default function ReservaPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-white italic">Cargando Melao...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-brand-cream flex items-center justify-center text-brand-dark font-black uppercase tracking-widest italic">Cargando Melao...</div>}>
       <ReservaForm />
     </Suspense>
   );
 }
+
