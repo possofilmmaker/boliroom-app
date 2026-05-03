@@ -1,160 +1,219 @@
 "use client";
 
 import Link from "next/link";
-import { 
-  CalendarCheck, 
-  Sparkles, 
+import {
+  CalendarCheck,
+  Sparkles,
   ArrowRight,
-  Zap,
   Beer,
   Music,
   Target,
   Instagram,
   Phone,
-  Play
+  MapPin,
+  Zap,
 } from "lucide-react";
 
-const Onda = ({ color = "#FF5A4F", className = "" }) => (
-  <svg width="60" height="12" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <path d="M0 6C5 6 7.5 2 12.5 2C17.5 2 20 10 25 10C30 10 32.5 2 37.5 2C42.5 2 45 10 50 10C55 10 57.5 6 60 6" stroke={color} strokeWidth="4" strokeLinecap="round"/>
+/* ── Onda SVG decorativa ── */
+const Onda = ({ color = "#FF4D3D", className = "" }) => (
+  <svg width="80" height="16" viewBox="0 0 80 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M0 8C6 8 10 3 16 3C22 3 26 13 32 13C38 13 42 3 48 3C54 3 58 13 64 13C70 13 74 8 80 8" stroke={color} strokeWidth="4" strokeLinecap="round"/>
+  </svg>
+);
+
+/* ── Ticker infinito ── */
+const Ticker = () => {
+  const items = ["SE JUEGA", "•", "SE BRINDA", "•", "SE BAILA", "•", "MELAO SOCIAL CLUB", "•", "BOGOTÁ LA 15", "•", "BUEN PLAN", "•", "BUENA GENTE", "•"];
+  return (
+    <div className="overflow-hidden bg-melao-coral py-4 -mx-0">
+      <div className="flex gap-12 animate-ticker whitespace-nowrap">
+        {[...items, ...items].map((item, i) => (
+          <span key={i} className="text-white font-black uppercase tracking-[0.3em] text-sm shrink-0">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ── Hoja decorativa SVG inline ── */
+const Leaf = ({ className = "" }) => (
+  <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M60 190 C60 190 5 140 10 80 C15 20 60 10 60 10 C60 10 105 20 110 80 C115 140 60 190 60 190Z" fill="currentColor" opacity="0.6"/>
+    <path d="M60 10 L60 190" stroke="currentColor" strokeWidth="3" opacity="0.4" strokeLinecap="round"/>
+    <path d="M60 50 C40 60 20 70 15 85" stroke="currentColor" strokeWidth="2" opacity="0.3" strokeLinecap="round"/>
+    <path d="M60 80 C40 90 25 100 18 115" stroke="currentColor" strokeWidth="2" opacity="0.3" strokeLinecap="round"/>
+    <path d="M60 50 C80 60 100 70 105 85" stroke="currentColor" strokeWidth="2" opacity="0.3" strokeLinecap="round"/>
+    <path d="M60 80 C80 90 95 100 102 115" stroke="currentColor" strokeWidth="2" opacity="0.3" strokeLinecap="round"/>
   </svg>
 );
 
 export default function Home() {
   return (
-    <main className="min-h-screen pt-24 pb-20">
-      {/* Hero Section */}
-      <section className="relative px-6 py-12 md:py-24 max-w-7xl mx-auto overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-10 animate-in fade-in slide-in-from-left-8 duration-1000">
-            <div className="space-y-4">
-                <h1 className="text-7xl md:text-[11rem] font-black leading-[0.8] tracking-tighter font-monument">
-                  <span className="text-melao-coral block">SE JUEGA</span>
-                  <span className="text-melao-yellow block">SE BRINDA</span>
-                  <span className="text-melao-teal block">SE BAILA</span>
-                </h1>
-                <div className="flex items-center gap-4">
-                  <Onda className="w-24 md:w-32" />
-                  <span className="text-xs font-black tracking-[0.5em] text-melao-green/40 uppercase">VIVE EL MELAO</span>
-                </div>
+    <main className="min-h-screen pb-20 overflow-x-hidden">
+
+      {/* ══════════════════════════════════════════
+          HERO — Fondo oscuro, letras grandes, energía
+      ══════════════════════════════════════════ */}
+      <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-0 px-6 overflow-hidden">
+
+        {/* Hojas de fondo decorativas */}
+        <Leaf className="absolute top-20 -right-16 w-40 text-melao-teal opacity-10 animate-float pointer-events-none" />
+        <Leaf className="absolute bottom-10 -left-16 w-52 text-melao-coral opacity-8 animate-float-rev pointer-events-none rotate-45" />
+
+        {/* Círculos de neón difuso */}
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-melao-coral/8 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-melao-teal/8 blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Texto hero */}
+          <div className="space-y-8">
+            {/* Pill / badge */}
+            <div className="inline-flex items-center gap-3 border border-melao-coral/30 text-melao-coral px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.4em]">
+              <span className="w-2 h-2 rounded-full bg-melao-coral animate-pulse-glow inline-block" />
+              Bogotá · Carrera 15
             </div>
-            
-            <p className="text-xl md:text-2xl font-medium text-melao-green/70 max-w-lg leading-snug">
-              El punto de encuentro donde la música, los juegos y los buenos tragos crean noches inolvidables.
+
+            <h1 className="font-monument font-black leading-[0.85] tracking-tighter">
+              <span className="block text-[clamp(3.5rem,10vw,9rem)] text-melao-coral">SE JUEGA</span>
+              <span className="block text-[clamp(3.5rem,10vw,9rem)] text-melao-yellow">SE BRINDA</span>
+              <span className="block text-[clamp(3.5rem,10vw,9rem)] text-melao-teal">SE BAILA</span>
+            </h1>
+
+            <div className="flex items-center gap-4">
+              <Onda className="w-20" />
+              <p className="text-melao-cream/40 font-black uppercase tracking-[0.4em] text-[10px]">VIVE EL MELAO</p>
+            </div>
+
+            <p className="text-melao-cream/60 text-lg md:text-xl font-medium max-w-md leading-relaxed">
+              El punto de encuentro donde la música, los juegos y los buenos tragos crean noches que no se olvidan.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link href="/reserva" className="melao-button melao-button-primary px-10 py-5">
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link href="/reserva" className="melao-button melao-button-primary px-10 py-5 text-base">
                 RESERVA TU MESA <ArrowRight size={20} />
               </Link>
-            </div>
-          </div>
-
-          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 group">
-            <div className="relative rounded-[4rem] overflow-hidden shadow-2xl aspect-[4/5] md:aspect-square border-[12px] border-white">
-              <img 
-                src="/images/salon.jpg" 
-                alt="Melao Social Club" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-melao-green/60 via-transparent to-transparent"></div>
-              
-              {/* Floating Badge */}
-              <div className="absolute top-10 right-10 bg-melao-yellow text-melao-green p-8 rounded-[2.5rem] shadow-2xl rotate-12 font-black text-center animate-pulse-soft">
-                <span className="text-[10px] block uppercase tracking-widest opacity-60 mb-1">Bogotá</span>
-                <span className="text-2xl">LA 15</span>
-              </div>
-            </div>
-            
-            {/* Decorative Elements */}
-            <img src="/images/palm_leaf.svg" alt="" className="absolute -bottom-10 -right-10 w-48 h-48 leaf-floating opacity-20 -rotate-12" />
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-melao-coral/10 rounded-full blur-3xl"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tagline Banner */}
-      <section className="bg-melao-green py-20 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10 onda-bg scale-150 animate-wave"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-4">
-          <p className="text-melao-coral font-bold uppercase tracking-[0.4em] text-xs">MÁS QUE UN BAR, UNA EXPERIENCIA</p>
-          <div className="flex items-center justify-center gap-6 md:gap-12 flex-wrap">
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter font-monument">BUEN PLAN</h2>
-            <Onda color="#FFC80B" className="w-12 md:w-20" />
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter font-monument">BUENA GENTE</h2>
-            <Onda color="#20BCB7" className="w-12 md:w-20" />
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter font-monument">BUENA MÚSICA</h2>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="px-6 py-32 max-w-7xl mx-auto relative">
-        {/* Decorative Leaf */}
-        <img src="/images/palm_leaf.svg" alt="" className="absolute -top-20 -left-20 w-64 h-64 opacity-5 rotate-45 pointer-events-none" />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { title: "TRAGOS DE AUTOR", desc: "Cócteles creativos con el sabor de Melao.", icon: Beer, color: "bg-melao-coral", link: "/menu" },
-            { title: "JUEGOS Y RETOS", desc: "Beer pong, dados y más. ¿Aceptas el reto?", icon: Target, color: "bg-melao-yellow", link: "/juegos" },
-            { title: "MÚSICA EN VIVO", desc: "Los mejores DJs y la energía que te mueve.", icon: Music, color: "bg-melao-teal", link: "/eventos" },
-            { title: "EVENTOS CADA SEMANA", desc: "Noches temáticas que no te puedes perder.", icon: CalendarCheck, color: "bg-melao-pink", link: "/eventos" },
-          ].map((item, i) => (
-            <div key={i} className="melao-card group">
-              <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-500`}>
-                <item.icon size={32} className="text-white" />
-              </div>
-              <h3 className="text-xl font-black mb-3">{item.title}</h3>
-              <p className="text-melao-green/60 font-medium mb-6">{item.desc}</p>
-              <Link href={item.link} className="inline-flex items-center gap-2 text-melao-coral font-bold text-xs tracking-widest hover:gap-4 transition-all">
-                VER MÁS <ArrowRight size={14} />
+              <Link href="/juegos" className="melao-button border border-white/15 text-melao-cream hover:border-melao-yellow hover:text-melao-yellow px-10 py-5 text-base">
+                VER JUEGOS
               </Link>
             </div>
+          </div>
+
+          {/* Imagen hero */}
+          <div className="relative group hidden lg:block">
+            {/* Borde decorativo */}
+            <div className="absolute inset-0 rounded-[3rem] border-2 border-melao-coral/20 translate-x-4 translate-y-4" />
+            <div className="relative rounded-[3rem] overflow-hidden aspect-[4/5] border border-white/10">
+              <img
+                src="/images/salon.jpg"
+                alt="Melao Social Club"
+                className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-melao-bg/80 via-melao-bg/10 to-transparent" />
+
+              {/* Badge LA 15 */}
+              <div className="absolute top-8 right-8 bg-melao-yellow text-melao-green p-6 rounded-[2rem] shadow-2xl rotate-6 font-black text-center">
+                <span className="text-[9px] block uppercase tracking-widest opacity-60 mb-1">Bogotá</span>
+                <span className="text-2xl block">LA&nbsp;15</span>
+              </div>
+
+              {/* Pill inferior */}
+              <div className="absolute bottom-8 left-8 right-8 bg-white/10 border border-white/15 rounded-2xl p-4 flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-melao-lime animate-pulse-glow" />
+                <span className="text-melao-cream font-black text-xs uppercase tracking-widest">Abierto esta noche</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          TICKER
+      ══════════════════════════════════════════ */}
+      <Ticker />
+
+      {/* ══════════════════════════════════════════
+          FEATURES — Cards oscuras con íconos de neón
+      ══════════════════════════════════════════ */}
+      <section className="px-6 py-24 max-w-7xl mx-auto relative">
+        {/* Hojas decorativas */}
+        <Leaf className="absolute -top-10 -left-10 w-36 text-melao-yellow opacity-5 rotate-[-30deg] pointer-events-none" />
+        <Leaf className="absolute -bottom-10 -right-10 w-48 text-melao-teal opacity-5 rotate-[120deg] pointer-events-none" />
+
+        <div className="text-center mb-16 space-y-4">
+          <p className="text-melao-coral font-black uppercase tracking-[0.5em] text-[10px]">TODO EN UN SOLO PARCHE</p>
+          <h2 className="text-5xl md:text-7xl font-black font-monument tracking-tighter text-melao-cream">
+            LO QUE <span className="text-melao-yellow">OFRECEMOS</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { title: "TRAGOS DE AUTOR", desc: "Cócteles creativos con el sabor de Melao.", icon: Beer, color: "text-melao-coral", glow: "melao-glow-coral", link: "/menu", accent: "border-melao-coral/20" },
+            { title: "JUEGOS Y RETOS", desc: "Beer pong, dados y más. ¿Aceptas el reto?", icon: Target, color: "text-melao-yellow", glow: "melao-glow-yellow", link: "/juegos", accent: "border-melao-yellow/20" },
+            { title: "MÚSICA EN VIVO", desc: "Los mejores DJs y la energía que te mueve.", icon: Music, color: "text-melao-teal", glow: "melao-glow-teal", link: "/eventos", accent: "border-melao-teal/20" },
+            { title: "EVENTOS CADA SEMANA", desc: "Noches temáticas que no te puedes perder.", icon: CalendarCheck, color: "text-melao-pink", glow: "", link: "/eventos", accent: "border-melao-pink/20" },
+          ].map((item, i) => (
+            <Link key={i} href={item.link} className={`melao-card group flex flex-col gap-6 border ${item.accent} hover:scale-[1.02]`}>
+              <div className={`w-14 h-14 rounded-2xl bg-melao-bg border border-white/10 flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform duration-500`}>
+                <item.icon size={28} />
+              </div>
+              <div>
+                <h3 className={`text-lg font-black tracking-tight mb-2 ${item.color}`}>{item.title}</h3>
+                <p className="text-melao-cream/40 font-medium text-sm leading-relaxed">{item.desc}</p>
+              </div>
+              <div className={`mt-auto inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${item.color} group-hover:gap-4 transition-all`}>
+                VER MÁS <ArrowRight size={14} />
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Events Section */}
-      <section className="px-6 py-20 bg-melao-cream relative overflow-hidden">
-        {/* Decorative Leaf */}
-        <img src="/images/palm_leaf.svg" alt="" className="absolute -bottom-20 -right-20 w-80 h-80 opacity-5 -rotate-12 pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      {/* ══════════════════════════════════════════
+          EVENTOS — Grilla con fotos grandes
+      ══════════════════════════════════════════ */}
+      <section className="section-dark py-24 overflow-hidden relative">
+        {/* Hojas laterales */}
+        <Leaf className="absolute top-10 -right-8 w-40 text-melao-coral opacity-5 animate-float pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
             <div className="space-y-4">
-              <p className="text-melao-coral font-bold uppercase tracking-[0.4em] text-xs">PRÓXIMOS EVENTOS</p>
-              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter font-monument">
-                NOCHES QUE <br/>SE VIVEN
+              <p className="text-melao-coral font-black uppercase tracking-[0.5em] text-[10px]">PRÓXIMAS NOCHES</p>
+              <h2 className="text-6xl md:text-8xl font-black font-monument tracking-tighter text-melao-cream leading-none">
+                NOCHES QUE<br /><span className="text-melao-yellow">SE VIVEN</span>
               </h2>
             </div>
-            <Link href="/eventos" className="melao-button melao-button-secondary">
-              VER TODOS LOS EVENTOS <ArrowRight size={20} />
+            <Link href="/eventos" className="melao-button melao-button-secondary shrink-0">
+              TODOS LOS EVENTOS <ArrowRight size={18} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { date: "31 MAY", title: "MELAO SATURDAYS", tags: "DJ SET + JUEGOS", time: "8:00 PM", img: "/images/salon.jpg" },
-              { date: "07 JUN", title: "REGGAETON NIGHT", tags: "DJ INVITADO", time: "9:00 PM", img: "/images/terraza.jpg" },
-              { date: "14 JUN", title: "RUMBA Y PERREO", tags: "OPEN FORMAT", time: "9:00 PM", img: "/images/salon.jpg" },
-              { date: "21 JUN", title: "BEERPONG TOURNAMENT", tags: "PREMIOS + SHOTS", time: "7:00 PM", img: "/images/salon.jpg" },
-            ].map((event, i) => (
+              { date: "31 MAY", title: "MELAO SATURDAYS", tags: "DJ SET + JUEGOS", time: "8:00 PM", img: "/images/salon.jpg", color: "bg-melao-coral" },
+              { date: "07 JUN", title: "REGGAETON NIGHT", tags: "DJ INVITADO", time: "9:00 PM", img: "/images/terraza.jpg", color: "bg-melao-teal" },
+              { date: "14 JUN", title: "RUMBA Y PERREO", tags: "OPEN FORMAT", time: "9:00 PM", img: "/images/salon.jpg", color: "bg-melao-yellow" },
+              { date: "21 JUN", title: "BEERPONG TORNEO", tags: "PREMIOS + SHOTS", time: "7:00 PM", img: "/images/salon.jpg", color: "bg-melao-pink" },
+            ].map((ev, i) => (
               <Link href="/eventos" key={i} className="group cursor-pointer">
-                <div className="relative h-96 rounded-[2.5rem] overflow-hidden mb-6 shadow-xl">
-                  <img src={event.img} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-melao-green to-transparent opacity-60"></div>
-                  
-                  <div className="absolute top-6 left-6 bg-melao-teal text-white p-4 rounded-2xl text-center shadow-lg">
-                    <span className="text-xl font-black block leading-none">{event.date.split(' ')[0]}</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest">{event.date.split(' ')[1]}</span>
+                <div className="relative h-96 rounded-3xl overflow-hidden border border-white/5">
+                  <img src={ev.img} alt={ev.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-melao-bg via-melao-bg/30 to-transparent" />
+
+                  {/* Fecha */}
+                  <div className={`absolute top-5 left-5 ${ev.color} text-melao-bg font-black text-sm px-4 py-2 rounded-2xl shadow-lg`}>
+                    {ev.date}
                   </div>
 
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <h4 className="text-2xl font-black text-white uppercase mb-2">{event.title}</h4>
-                    <p className="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-4">{event.tags}</p>
-                    <div className="flex items-center gap-2 text-white/50 text-[10px] font-bold">
-                      <span>{event.time}</span>
-                      <ArrowRight size={12} className="group-hover:translate-x-2 transition-transform" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-melao-cream/50 text-[9px] font-black uppercase tracking-widest mb-2">{ev.tags}</p>
+                    <h4 className="text-xl font-black text-melao-cream uppercase font-monument tracking-tight leading-tight mb-3">{ev.title}</h4>
+                    <div className="flex items-center gap-2 text-melao-cream/40 text-[10px] font-bold">
+                      <span>{ev.time}</span>
+                      <ArrowRight size={12} className="group-hover:translate-x-2 transition-transform text-melao-coral" />
                     </div>
                   </div>
                 </div>
@@ -164,112 +223,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="px-6 py-32 max-w-7xl mx-auto relative">
-        <div className="mb-16 space-y-4">
-          <p className="text-melao-teal font-bold uppercase tracking-[0.4em] text-xs">GALERÍA</p>
-          <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter font-monument">MOMENTOS <br/><span className="text-melao-coral">MELAO</span></h2>
+      {/* ══════════════════════════════════════════
+          GALERÍA RÁPIDA
+      ══════════════════════════════════════════ */}
+      <section className="px-6 py-24 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+          <div>
+            <p className="text-melao-teal font-black uppercase tracking-[0.5em] text-[10px] mb-3">EL AMBIENTE</p>
+            <h2 className="text-6xl md:text-7xl font-black font-monument tracking-tighter text-melao-cream leading-none">
+              MOMENTOS<br /><span className="text-melao-coral">MELAO</span>
+            </h2>
+          </div>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="melao-button border border-melao-pink/30 text-melao-pink hover:bg-melao-pink hover:text-white gap-3">
+            <Instagram size={18} /> SÍGUENOS
+          </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {['salon.jpg', 'terraza.jpg', 'salon.jpg', 'terraza.jpg', 'salon.jpg'].map((img, i) => (
-            <div key={i} className={`rounded-[2rem] overflow-hidden shadow-lg h-64 md:h-80 ${i % 2 === 0 ? 'mt-8' : ''}`}>
-              <img src={`/images/${img}`} alt="Melao Moment" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {['salon.jpg','terraza.jpg','salon.jpg','terraza.jpg','salon.jpg'].map((img, i) => (
+            <div key={i} className={`rounded-3xl overflow-hidden border border-white/5 ${i % 2 === 0 ? 'h-64 md:h-80 mt-6' : 'h-64 md:h-80'}`}>
+              <img src={`/images/${img}`} alt="Momento Melao" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" />
             </div>
           ))}
         </div>
-        
-        <div className="mt-16 text-center">
-          <Link href="https://instagram.com" target="_blank" className="melao-button melao-button-primary bg-melao-teal inline-flex">
-            SÍGUENOS EN INSTAGRAM <Instagram size={20} className="ml-2" />
-          </Link>
-        </div>
       </section>
 
-      {/* Footer / CTA Banner */}
-      <section className="px-6 py-20 bg-melao-green rounded-[4rem] mx-6 relative overflow-hidden mt-20">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-          {/* Wave pattern */}
-          <div className="onda-bg w-full h-full scale-[3]"></div>
-        </div>
-        
+      {/* ══════════════════════════════════════════
+          CTA FINAL — Bloque full verde oscuro
+      ══════════════════════════════════════════ */}
+      <section className="mx-4 md:mx-8 rounded-[3rem] section-accent py-24 px-8 relative overflow-hidden">
+        {/* Hojas decorativas */}
+        <Leaf className="absolute -top-10 -right-6 w-52 text-melao-teal opacity-8 rotate-[20deg] pointer-events-none" />
+        <Leaf className="absolute -bottom-10 -left-6 w-44 text-melao-coral opacity-8 rotate-[-40deg] pointer-events-none" />
+
+        {/* Círculo de neón */}
+        <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-melao-coral/10 blur-[100px] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="space-y-6 text-center lg:text-left">
-            <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter font-monument">
-              ¿LISTO PARA <br/>TU PRÓXIMA NOCHE?
+            <p className="text-melao-lime font-black uppercase tracking-[0.5em] text-[10px]">¿QUÉ ESPERAS?</p>
+            <h2 className="text-5xl md:text-8xl font-black font-monument tracking-tighter text-melao-cream leading-none">
+              ¿LISTO PARA<br /><span className="text-melao-coral">TU PRÓXIMA<br />NOCHE?</span>
             </h2>
-            <p className="text-white/60 text-xl font-medium">Reserva tu mesa y asegura tu mejor parche en Melao.</p>
+            <p className="text-melao-cream/50 text-xl font-medium">
+              Reserva tu mesa y asegura tu mejor parche en Melao.
+            </p>
           </div>
-          <Link href="/reserva" className="melao-button melao-button-primary bg-melao-coral px-16 py-8 text-xl shadow-[0_20px_40px_rgba(255,90,79,0.3)]">
-            RESERVA TU MESA <ArrowRight size={32} strokeWidth={3} />
+          <Link href="/reserva" className="melao-button melao-button-primary px-14 py-7 text-lg shrink-0">
+            RESERVA TU MESA <ArrowRight size={28} strokeWidth={3} />
           </Link>
         </div>
       </section>
 
-      {/* Actual Footer */}
-      <footer className="px-6 pt-32 pb-12 max-w-7xl mx-auto relative">
-        {/* Decorative Leaf */}
-        <img src="/images/palm_leaf.svg" alt="" className="absolute top-40 right-10 w-48 h-48 opacity-5 rotate-180 pointer-events-none" />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          <div className="space-y-8">
-            <div className="flex flex-col items-start">
-               <Onda className="w-16 mb-2" />
-               <span className="text-4xl font-black tracking-tighter font-monument">MELAO</span>
-               <span className="text-[8px] font-black uppercase tracking-[0.3em] opacity-40">Social Club Bogotá</span>
+      {/* ══════════════════════════════════════════
+          FOOTER
+      ══════════════════════════════════════════ */}
+      <footer className="px-6 pt-24 pb-12 max-w-7xl mx-auto relative">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          {/* Brand */}
+          <div className="space-y-6 md:col-span-2">
+            <div>
+              <Onda className="w-16 mb-2" />
+              <span className="text-5xl font-black tracking-tighter font-monument text-melao-cream block">MELAO</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.4em] text-melao-cream/30">Social Club · Bogotá</span>
             </div>
-            <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:bg-melao-coral hover:text-white transition-all">
-                <Instagram size={20} />
+            <p className="text-melao-cream/40 text-sm font-medium max-w-xs">
+              El lugar donde siempre hay buen plan, buena gente y mejor música.
+            </p>
+            <div className="flex gap-3">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-2xl border border-white/10 flex items-center justify-center text-melao-cream/50 hover:border-melao-coral hover:text-melao-coral transition-all">
+                <Instagram size={18} />
               </a>
-              <a href="https://wa.me/573138139634" target="_blank" className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:bg-melao-coral hover:text-white transition-all">
-                <Phone size={20} />
+              <a href="https://wa.me/573138139634" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-2xl border border-white/10 flex items-center justify-center text-melao-cream/50 hover:border-melao-teal hover:text-melao-teal transition-all">
+                <Phone size={18} />
+              </a>
+              <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-2xl border border-white/10 flex items-center justify-center text-melao-cream/50 hover:border-melao-yellow hover:text-melao-yellow transition-all">
+                <MapPin size={18} />
               </a>
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-30">GOOD PEOPLE • GOOD VIBES</p>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-xs font-black uppercase tracking-widest text-melao-coral">ENLACES</h4>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { name: 'Inicio', path: '/' },
-                { name: 'Eventos', path: '/eventos' },
-                { name: 'Menú', path: '/menu' },
-                { name: 'Juegos', path: '/juegos' },
-                { name: 'Reservas', path: '/reserva' }
-              ].map(link => (
-                <Link key={link.name} href={link.path} className="text-sm font-medium text-melao-green/60 hover:text-melao-green transition-colors">{link.name}</Link>
+          {/* Links */}
+          <div className="space-y-5">
+            <h4 className="text-[10px] font-black uppercase tracking-widest text-melao-coral">PÁGINAS</h4>
+            <div className="flex flex-col gap-3">
+              {[{name:'Inicio',path:'/'},{name:'Eventos',path:'/eventos'},{name:'Menú',path:'/menu'},{name:'Juegos',path:'/juegos'},{name:'Reservas',path:'/reserva'}].map(l => (
+                <Link key={l.name} href={l.path} className="text-sm font-medium text-melao-cream/40 hover:text-melao-cream transition-colors">{l.name}</Link>
               ))}
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-xs font-black uppercase tracking-widest text-melao-coral">INFORMACIÓN</h4>
-            <div className="flex flex-col gap-4">
-              {['Acerca de nosotros', 'Trabaja con nosotros', 'Términos y condiciones', 'Política de privacidad'].map(link => (
-                <Link key={link} href="/" className="text-sm font-medium text-melao-green/60 hover:text-melao-green transition-colors">{link}</Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <h4 className="text-xs font-black uppercase tracking-widest text-melao-coral">CONTACTO</h4>
-            <div className="space-y-4">
-              <p className="text-sm font-medium text-melao-green/60 leading-loose">
-                📍 Bogotá, Colombia<br/>
-                📞 +57 313 813 9634<br/>
-                ✉️ hola@melaosocialclub.com
-              </p>
-              <img src="/images/palm_leaf.svg" alt="" className="w-12 opacity-10" />
-            </div>
+          {/* Contacto */}
+          <div className="space-y-5">
+            <h4 className="text-[10px] font-black uppercase tracking-widest text-melao-coral">CONTACTO</h4>
+            <p className="text-sm font-medium text-melao-cream/40 leading-loose">
+              📍 Cra 15 # 67-27, Bogotá<br />
+              📞 +57 313 813 9634<br />
+              ✉️ hola@melaosocialclub.com
+            </p>
           </div>
         </div>
 
-        <div className="pt-12 border-t border-melao-green/10 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-20">© 2024 Melao Social Club. Todos los derechos reservados.</p>
+        <div className="pt-8 border-t border-white/5 text-center">
+          <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-melao-cream/15">
+            © 2025 Melao Social Club · Todos los derechos reservados
+          </p>
         </div>
       </footer>
+
     </main>
   );
 }
